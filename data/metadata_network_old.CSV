@@ -1,0 +1,10 @@
+Log_NR;STANDORT;STANDORT_NEU;Code_grafana;NORD_CHTOPO;OST_CHTOPO;LV_03_N;LV_03_E;HuM;Art;ZUSTAENDIG;BEFESTIGUNG;Doppel_Messnetz_23;Start;End;Quali
+8;Wankdorf ESP;Wankdorf ESP;7637b479bc79;46.968;7.46247;2601814.2;1201881.4;550.5;Hauptnetz;ewb;Strassenlampe;nein;08.05.2023;01.06.2023;1
+8;Wankdorf ESP;Wankdorf ESP;cad06aabf023;46.968;7.46247;2601814.2;1201881.4;550.5;Hauptnetz;ewb;Strassenlampe;nein;01.06.2023;06.06.2023;1
+10;Langgasse, Neufeldstrasse 135;Hintere Langgasse;1564ef396f0f;46.95789;7.43541;2599754.9;200756.72;558.5;Hauptnetz;ewb;Strassenlampe;nein;09.05.2023;24.05.2023;1
+14;Helvetiaplatz;Helvetiaplatz;db897f1683fc;46.94381;7.44885;2600777.8;1199191.1;530.8;Hauptnetz;TAB;Verkehrsschild;ja;10.05.2023;01.06.2023;1
+16;Bubenbergplatz;Bubenbergplatz;017e3348dd62;46.94728;7.43843;2599984.7;1199577.3;542.5;Hauptnetz;BERNMOBIL;Masten;nein;10.05.2023;16.06.2023;0
+76;Wabern, Viktoriastrasse 9;Wabern Viktoriastrasse;a6d098900d78;46.93122;7.45326;2601114;1197791.9;533.6;Hauptnetz;Gemeinde Koniz;Strassenlampe (Gmd Koniz 119);ja;09.05.2023;24.05.2023;0
+89;Gurten Kulm;Gurten Kulm;2e15ffacceab;46.91833;7.43971;2600082;1196359.1;848;Hauptnetz;ewb;Strassenlampe;nein;17.05.2023;27.07.2023;1
+128;Schosshaldenfriedhof;Schosshaldenfriedhof;75a4a50dfb2c;46.95342;7.47165;2602513.5;1200260.3;568.1;Monitoring intern;Stadtgrun;Mobile Stange;nein;24.05.2023;16.06.2023;1
+162;Ostermundigen Postgasse;Ostermundigen Poststrasse;b60acb7fff9f;46.95867;7.48222;2603317.7;1200844.3;551.5;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;16.06.2023;1
