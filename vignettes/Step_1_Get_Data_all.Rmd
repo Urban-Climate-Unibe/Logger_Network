@@ -1,0 +1,57 @@
+---
+title: "Maps"
+author: 'Noémie Wellinger'
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+This Rmd script serves to download the measurement data from the grafana server and put it into a nice table. 
+The time range of the data that should be downloaded can be set manually. Metadata tables that contain the station name, grafana codes, coordinates and installation data of each logger are read in. Here, we distinguish between a current metadata sheet and an old one that contains deprecated, replaced or moved loggers.
+The DATA WRANGLING section sorts the data into two big tables (temperature and relative humidity) with 10 minute timesteps and a separate column for each logger. You can just run the first part of the data wrangling, to only include the current loggers, or, OPTIONALLY, you can add the data from the replaced loggers (according to the old metadata sheet) as well. The script pay attention to the installation and de-installation date of the loggers, so it will only use the data from the exact time range during which the loggers were measuring at a specific station.
+Finally, missing values are plotted and the tables can be exported.
+
+
+```{r libraries, include = F}
+library(influxdbclient)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+
+
+
+# DATA WRANGLING
+```{r dataframes, include = F}
+
+```
+
+## Data from current loggers
+```{r currentloggers, indlude = F}
+
+source("../R/Logger_Data.R")
+
+data <- Logger_data(date_start = "2023-05-01",date_end = "2023-09-01")
+
+```
+
+
+
+
+# PLOTTING
+```{r plots, include = T}
+visdat::vis_miss(
+  data,
+  cluster = FALSE, 
+  warn_large_data = FALSE
+  )
+
+```
+
+
+
+
+
+
