@@ -1,6 +1,6 @@
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
 Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.character(Sys.Date()-1),write_csv = F,interpolate = T){
-  if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")}
+  if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")} #setting correct working-directory
 
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")
   source("../R/load_packages.R")
@@ -23,7 +23,8 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 
   meta <- read_csv("../data/meta_complete.csv")|>
     mutate(Quali = if_else(is.na(Quali),1,Quali),
-           End = if_else(is.na(End),Sys.Date(),End))
+           End = if_else(is.na(End),Sys.Date(),End))|>
+    filter(Quali != 0)
 
   result <- inner_join(tables,meta, by = "Code_grafana",relationship = "many-to-many") |>
     filter(date(time) >= Start & date(time) <= End) |>ungroup()|>
