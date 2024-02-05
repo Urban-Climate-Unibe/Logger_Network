@@ -1,3 +1,11 @@
+#' ToDo description
+#'
+#' @param temperature A vector?
+#' @returns A vector?
+#' @examples
+#' interpolate( xx )
+
+
 fill_missing_temperatures <- function(temperature) {
   n <- length(temperature)
   is_na <- is.na(temperature)
