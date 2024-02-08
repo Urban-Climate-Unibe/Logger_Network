@@ -1,7 +1,7 @@
-#' Download the measurement data from the grafana server and put it into a nice table.
+#' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
-#' @param date_start A character string containing the first day of data to download.
-#' @param date_end A character string containing the last day.
+#' @param date_start A character string containing the first day of data to download. Default is yesterday.
+#' @param date_end A character string containing the last day. Default is 50 days ago.
 #' @param write_csv A Boolean indicating whether the data should be directly saved into a csv. Default is TRUE.
 #' @param interpolate A Boolean indicating whether missing data should be interpolated. Default is TRUE.
 #' @returns A dataframe containing the downloaded data in tidy format.
@@ -66,7 +66,7 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
     }
 
     if (write_csv) {
-      write_csv(result,paste0("../data/Logger_data_",date_start,"_",date_end,".csv"))
+      write_csv(result,paste0("../data/Logger_data_T_",date_start,"_",date_end,".csv"))
     }
 
     return(result)
