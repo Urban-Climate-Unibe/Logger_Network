@@ -1,0 +1,355 @@
+---
+title: "Summary"
+author: 'Moritz Burger & Noémie Wellinger'
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+This Rmd script calculates important Urban Climate indicators for each logger. These are first calculated for each day of the measurement period, and finally summarized (averages) in a big summary table.
+Note that the time of day over they are calculated differs: whole day (00-24), daytime (6-22) and night (either 22-6 or 21-7).
+
+** NOT SURE HOW EXACTLY WE SHOULD PROCEED FOR THE VALID DAYS. THIS IS NOÉMIE'S SUGGESTION: **
+To contextualize the number of hot day for example, we also check the amount of valid days, as in no more than 20% NA. If there are more than 20% NA, all the data of this day is deleted.
+** 20% OF COURSE COULD ALSO BE 10%. ALSO, DOES IT MAKE SENSE FOR ALL INDICATORS TO USE THE SAME THRESHOLD? **
+
+
+
+```{r libraries, include=F}
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+```
+
+```{r}
+# select time period
+#   MJJAS for 15.5. - 15.9.
+#   JJA for 1.6. - 31.8.
+
+#time_range <- "MJJAS"
+time_range <- "JJA"
+ndays <- 91
+year <- 2023
+date_start = "2023-06-01"
+date_end = "2023-08-31"
+```
+
+
+```{r read, include = F}
+data<-read_csv(paste0("../data/Analysis ", year,"/Rawdata_T_", year, "_", time_range, ".csv"))
+
+data <- read_csv("../data/Logger_data_2023-06-01_2023-08-31.csv") 
+# shift the hours, so that the night is not cut in half
+data <- data |>
+  #mutate(time = as.POSIXct(time, format = "%Y-%m-%d %H:%M", tz = "Europe/Zurich")) |>
+  mutate(timeshift = time - dhours(7)) |> #07 is the new 00
+  dplyr::select(-Log_99, everything(), Log_99)
+
+data_OM <- data |>
+ dplyr::select(Log_162, Log_161, Log_65, Log_23, Log_154,Log_156, Log_155, Log_86, Log_153, Log_152, Log_151)
+
+visdat::vis_miss(
+  data_OM, #your table
+  cluster = FALSE, 
+  warn_large_data = FALSE
+  )
+```
+
+# Indicators using Nighttime Temperatures (21:00 - 07:00):
+Average Tmin per Logger, Tropical Nights, Gfrörli Nights
+```{r indicators_0, include = F}
+data_night <- data |> 
+  filter(hour(timeshift) >= 14)
+
+Tmin_night <- data_night |>
+  group_by(month=month(timeshift), day=day(timeshift)) |>
+  summarise_all(~ min(., na.rm = TRUE))
+
+Tmin_night[sapply(Tmin_night, is.infinite)] <- NA
+
+# average tmin per logger
+Tmin_night_avg <- Tmin_night |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -day, -year)
+
+Tropical_nights <- Tmin_night |>
+  dplyr::select(-time, -month, -day) |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ sum(. >= 20 & . <= 30, na.rm = TRUE)) |>
+  dplyr::select(-year, -month)
+
+Gfroerli_nights <- Tmin_night |>
+  dplyr::select(-time, -month, -day) |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ sum(. <=10 & . >= 0, na.rm = TRUE)) |>
+  dplyr::select(-year, -month)
+```
+
+
+Logs<-colnames(Tmin_night[3:82])
+Tropical_Nights_20<-data.frame(Logs,Tmin_avg, TN, GN)
+
+
+# Indicators using Nighttime Temperatures (22:00 - 06:00)
+Mean night temperature, 
+```{r indicators_1, include=F}
+data_night2 <- data |> 
+  filter(hour(timeshift) >= 15, hour(timeshift)<23)
+
+# mean night temperature
+Tmean_night <- data_night2 |>
+  group_by(month=month(timeshift), day=day(timeshift)) |>
+  summarise_all(~ mean(., na.rm = TRUE))
+
+Tmean_night[sapply(Tmean_night, is.infinite)] <- NA
+Tmean_night[sapply(Tmean_night, is.nan)] <- NA
+
+Tmean_night_avg <- Tmean_night |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -day, -year)
+
+# Urban heat island
+# Reference: Zollikofen Referenz 3m (Log_99)
+UHI_night <- Tmean_night |>
+  mutate_all(~ .-Log_99) |>
+  dplyr::select(-month, -day)
+UHI_night[sapply(UHI_night, is.nan)] <- NA
+
+UHI_night_avg <- UHI_night |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -year) |>
+  head(1) #select the first row, since there is a second row with NaN
+
+```
+
+
+# Indicators using daytime Temperatures (06:00 - 22:00)
+Mean daytime temperature
+```{r indicators_2, include=F}
+data_day <- data |> 
+  filter(hour(time) >= 6, hour(time) <= 22) # use time again, to avoid breaking the day apart
+
+# mean day temperature
+Tmean_day <- data_day |>
+  group_by(month=month(time), day=day(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE))
+
+Tmean_day[sapply(Tmean_day, is.infinite)] <- NA
+Tmean_day[sapply(Tmean_day, is.nan)] <- NA
+
+Tmean_day_avg <- Tmean_day |>
+  group_by(year = year(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -day, -year)
+
+# Urban heat island
+# Reference: Zollikofen Referenz 3m (Log_99)
+UHI_day <- Tmean_day |>
+  mutate_all(~ .-Log_99) |>
+  dplyr::select(-month, -day)
+UHI_day[sapply(UHI_day, is.nan)] <- NA
+
+UHI_day_avg <- UHI_day |>
+  group_by(year = year(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -year) |>
+  head(1) #select the first row, since there is a second row with NaN
+```
+
+# Indicators using measurements of entire day
+```{r indicators_3, include = F}
+# Overall mean temperature
+Tmean <- data |>
+  group_by(month=month(time), day=day(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE))
+
+Tmean[sapply(Tmean, is.infinite)] <- NA
+Tmean[sapply(Tmean, is.nan)] <- NA
+
+Tmean_avg <- Tmean |>
+  group_by(year = year(timeshift)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -day, -year)
+
+# Overall max temperature
+Tmax <- data |>
+  group_by(month=month(time), day=day(time)) |>
+  summarise_all(~ max(., na.rm = TRUE))
+
+Tmax[sapply(Tmax, is.infinite)] <- NA
+Tmax[sapply(Tmax, is.nan)] <- NA
+
+Tmax_avg <- Tmax |>
+  group_by(year = year(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -day, -year)
+
+# Urban heat island
+# Reference: Zollikofen Referenz 3m (Log_99)
+UHI <- Tmean |>
+  mutate_all(~ .-Log_99) |>
+  dplyr::select(-month, -day)
+UHI[sapply(UHI, is.nan)] <- NA
+
+UHI_avg <- UHI |>
+  group_by(year = year(time)) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-time, -timeshift, -month, -year) |>
+  head(1) #select the first row, since there is a second row with NaN
+
+# Summer days
+Summer_days <- Tmax |>
+  dplyr::select(-timeshift, -month, -day) |>
+  group_by(year = year(time)) |>
+  summarise_all(~ sum(. >= 25 & . <= 50, na.rm = TRUE)) |>
+  dplyr::select(-year, -month)
+
+# Hot days
+Hot_days <- Tmax |>
+  dplyr::select(-timeshift, -month, -day) |>
+  group_by(year = year(time)) |>
+  summarise_all(~ sum(. >= 30 & . <= 50, na.rm = TRUE)) |>
+  dplyr::select(-year, -month)
+
+# Very Hot days
+VHot_days <- Tmax |>
+  dplyr::select(-timeshift, -month, -day) |>
+  group_by(year = year(time)) |>
+  summarise_all(~ sum(. >= 35 & . <= 50, na.rm = TRUE)) |>
+  dplyr::select(-year, -month)
+```
+
+# Valid days
+```{r valid_days, include = F}
+# TODO
+# valid days
+# question also valid nights, and daytime ?
+# when is a day valid? does it have to be completely without NA or not more than 20% NA or so?
+# or also look at each hour
+# gap filling with new sensors
+# valid hours = 4 measurements or more per hour
+
+# Set threshold for maximum amount of NA data that is allowed per day (e.g. 0.2 = 20%)
+threshold <- 0.2
+
+# Calculate the number of NA values per day
+NA_per_day <- data |>
+  group_by(date = date(time)) |>
+  summarize_all(~ sum(is.na(.))) |>
+  dplyr::select(-time)
+
+# Flag the valid (1) and invalid (0) days
+valid_days <- NA_per_day |>
+  mutate(across(-date, ~ifelse(. > 144*threshold, 0, 1))) # 144 measurements per day (every 10 mins)
+
+# Calculate the total number of days and valid days
+total_valid_days <- valid_days |>
+  dplyr::select(-date) |>
+  summarise_all(~ sum(., na.rm = TRUE)) 
+```
+
+# OPTIONAL ! ** Doesn't work yet **
+Set the cells of an entire day to NA if it was an invalid day
+```{r}
+# Identify rows to set to NA
+rows_to_set_na <- your_dataframe %>%
+  filter(your_dataframe == 0) %>%
+  select(date)
+
+# Update the 'hourly' dataframe
+hourly <- hourly %>%
+  left_join(rows_to_set_na, by = "date") %>%
+  mutate(across(-date, ~ifelse(date.x == date.y & your_dataframe == 0, NA, .)))
+
+# Cleanup columns if needed (e.g., remove date.x, date.y)
+hourly <- hourly %>%
+  select(-date.x, -date.y)
+
+### TODO doesn't work yet!
+data_valid <- data |>
+  mutate(date = date(time)) |>
+  left_join(valid_days, by = "date") |>
+  select(-time) |>
+  mutate(across(-date, ~ifelse(.y == 0, NA, .x))) |>
+  select(-.y)  # Remove the columns from your_dataframe
+```
+
+
+# Final summary table
+```{r transpose, include = F}
+# Transpose all the indicator tables
+Tmean_avg <- as.data.frame(t(head(Tmean_avg))) |> rename(Tmean = V1) |> rownames_to_column(var = "Log_name")
+Tmax_avg <- as.data.frame(t(head(Tmax_avg))) |> rename(Tmax = V1) |> rownames_to_column(var = "Log_name")
+Tmean_night_avg <- as.data.frame(t(head(Tmean_night_avg))) |> rename(Tmean_night = V1) |> rownames_to_column(var = "Log_name")
+Tmin_night_avg <- as.data.frame(t(head(Tmin_night_avg))) |> rename(Tmin_night = V1) |> rownames_to_column(var = "Log_name")
+Tmean_day_avg <- as.data.frame(t(head(Tmean_day_avg))) |> rename(Tmean_day = V1) |> rownames_to_column(var = "Log_name")
+UHI_avg <- as.data.frame(t(head(UHI_avg))) |> rename(UHI = V1) |> rownames_to_column(var = "Log_name")
+UHI_day_avg <- as.data.frame(t(head(UHI_day_avg))) |> rename(UHI_day = V1) |> rownames_to_column(var = "Log_name")
+UHI_night_avg <- as.data.frame(t(head(UHI_night_avg))) |> rename(UHI_night = V1) |> rownames_to_column(var = "Log_name")
+Tropical_nights <- as.data.frame(t(head(Tropical_nights))) |> rename(Tropical_nights = V1) |> rownames_to_column(var = "Log_name")
+Gfroerli_nights <- as.data.frame(t(head(Gfroerli_nights))) |> rename(Gfroerli_nights = V1) |> rownames_to_column(var = "Log_name")
+Summer_days <- as.data.frame(t(head(Summer_days))) |> rename(Summer_days = V1) |> rownames_to_column(var = "Log_name")
+Hot_days <- as.data.frame(t(head(Hot_days))) |> rename(Hot_days = V1) |> rownames_to_column(var = "Log_name")
+VHot_days <- as.data.frame(t(head(VHot_days))) |> rename(VHot_days = V1) |> rownames_to_column(var = "Log_name")
+
+valid_days <- as.data.frame(t(head(total_valid_days))) |> rename(total_valid_days = V1) |> rownames_to_column(var = "Log_name")
+
+# Keep in mind this overwrites the original tables, so if you run this chunk again, it transposes back and probably causes an error
+
+# Calculate also the percentage of valid days
+valid_days <- valid_days |>
+  mutate(valid_days_percent = total_valid_days/ndays)
+```
+
+```{r join, include=F}
+# Join the transposed tables
+indicators <- list(Tmean_avg, Tmax_avg, Tmean_night_avg, Tmin_night_avg, Tmean_day_avg, UHI_avg, UHI_day_avg, UHI_night_avg, Tropical_nights, Gfroerli_nights, Summer_days, Hot_days, VHot_days, valid_days)
+
+Summary <- plyr::join_all(indicators, by = "Log_name", type = "full")
+```
+
+
+Add the coordinates from the metadata and format them correctly. Important for mapping later on.
+```{r coordinates, include = F}
+# Add Longitude and Latitude values
+meta <- read_csv2("../data/metadata_network_2023.csv") |>
+  dplyr::select(Log_NR, STANDORT_NEU, NORD_CHTOPO, OST_CHTOPO) |>
+  mutate(Log_name = paste0("Log_", Log_NR)) |>
+  mutate(NORD_CHTOPO = as.character(NORD_CHTOPO)) |>
+  mutate(OST_CHTOPO = as.character(OST_CHTOPO)) |>
+  # Coordinates are missing a period, so let's fix this
+  mutate(NORD_CHTOPO = sub("(\\d{2})(\\d+)", "\\1.\\2", NORD_CHTOPO)) |> # Insert a period after the first two characters
+  mutate(OST_CHTOPO = sub("(\\d)(\\d+)", "\\1.\\2", OST_CHTOPO)) |> # Insert a period after the first character
+  mutate(NORD_CHTOPO = as.numeric(NORD_CHTOPO)) |> # convert back into numeric
+  mutate(OST_CHTOPO = as.numeric(OST_CHTOPO))
+
+Summary <- Summary |>
+  full_join(meta, by = 'Log_name') |>
+  drop_na()
+```
+
+```{r}
+# Calculate mean over all stations
+
+Summary_all <- Summary |>
+  summarise_all(~ mean(., na.rm = TRUE)) 
+```
+
+```{r export, includ = F}
+write_csv(Summary, (paste0("../data/Summary_T_", date_start, "_", date_end, ".csv")))
+```
+
+# Calculate indicator temperatures for report for Bern and Ostermundigen
+```{r}
+Summary <- read.csv(paste0("../data/Summary_T_", date_start, "_", date_end, ".csv")) 
+
+Summary_OM <- Summary |>
+  filter(grepl("Ostermundigen", STANDORT_NEU, ignore.case = TRUE)) 
+
+Summary_all_OM <- Summary_OM |>
+  summarise_all(~ mean(., na.rm = TRUE)) 
+```
+
+
