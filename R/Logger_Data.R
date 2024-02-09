@@ -1,5 +1,5 @@
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
-Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = T){
+Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0){
   if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")} #setting correct working-directory
 
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
@@ -49,11 +49,11 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 
 
 
-    if(interpolate){
+    if(interpolate > 0){
       source("../R/interpolate.R") #Check for functionality!
       # Apply the function to the temperature column
       result <- result |>
-        mutate_all(~ fill_missing_temperatures(.))
+        mutate_all(~ fill_missing_temperatures(.,max_gap = interpolate))
     }
 
     if (write_csv) {
