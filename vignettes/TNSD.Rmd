@@ -1,0 +1,346 @@
+---
+title: "Maps"
+author: "Moritz Burger & Noémie Wellinger"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r libraries, include = F}
+library(caret)
+library(dplyr)
+library(ggplot2)
+library(raster)
+library(ggnewscale)
+library(tidyverse)
+```
+
+```{r}
+time_range = "JJA"
+date_start = "2023-06-01"
+date_end = "2023-08-31"
+```
+
+```{r get_data, include = F}
+TNSD <- read.csv(paste0("../data/Summary_T_", date_start, "_", date_end, ".csv")) |>
+  dplyr::select(Log_name, Log_NR, STANDORT_NEU, Tropical_nights, Hot_days, total_valid_days, valid_days_percent, NORD_CHTOPO, OST_CHTOPO) |>
+  drop_na()
+
+data<-read_csv(paste0("../data/Logger_data_",date_start,"_",date_end,".csv"))
+# shift the hours, so that the night is not cut in half
+data <- data |>
+  mutate(Time = as.POSIXct(Time, format = "%Y-%m-%d %H:%M", tz = "Europe/Zurich"))
+```
+
+
+# Maps for the city of Bern
+```{r prepare_map, include = F}
+LUmap <- raster("../data/Tiffs/Background_20_WGS84.tif")
+LUmap <- as.data.frame(LUmap, xy=T)
+
+# color scheme for LUmap:
+# 1= Buildings
+# 2= Sealed       
+# 3= Garden       
+# 4= Acriculture  
+# 5= Forest    
+# 6= Water   
+value_colors <- c("grey72", "grey72", "lightgrey", "lightgrey", "grey68", "lightblue")
+
+# color schemes for the datapoints
+```
+
+```{r map_VD, echo = TRUE}
+valid_day_map <- TNSD |>
+  # Remove Zollikofen 2m because we only want to map our 3m stations
+    dplyr::filter(Log_name != "Zollikofen 2m")
+  
+  
+colorscheme5 <- c("#CC9933", "#FFEE00", "#AAFF00", "#22BB22", "#004400")
+
+VD_map<-
+  ggplot()+
+  geom_raster(data = LUmap, aes(x = x, y = y, fill = as.factor(Background_20_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", name=NULL, guide = F) +
+  new_scale_fill() +
+  geom_point(data=valid_day_map, 
+             aes(x=OST_CHTOPO, y=NORD_CHTOPO, fill=valid_days_percent), 
+             colour="black", size=8, pch=21) + 
+  labs(title="Anteil Messtage mit > 80% Datenabdeckung (Juni-August)")+
+  scale_fill_stepsn(limits=c(0,1), breaks=c(0.25,0.5,0.80,0.95,1), 
+                    labels=c("< 25","25 - 50","50 - 80","80 - 95","95 - 100"),
+                    colors = colorscheme5, name="Anteil in %", guide="legend")+
+  theme_minimal()+
+  theme(panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position=c(0.113,0.15),
+        legend.background=element_rect(fill="white", color="black"),
+        legend.key.size=(unit(0.8, "cm")),
+        legend.text=element_text(size=14),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-20,t=5) ,size=18))
+
+VD_map
+```
+
+
+```{r}
+# Remove certain stations if they are not wanted on the map:
+TNSD <- TNSD |>
+  dplyr::filter(Log_name != "Zollikofen 2m") |>
+  dplyr::filter(Log_name != "Europaplatz")
+```
+
+#Plotting
+```{r map_TN, echo = F}
+colorscheme4 <- c("#FFFFFF", "#CCFFFF", "#BBAAFF", "#7744EE", "#770099", "#550028")
+
+TN_map <-
+  ggplot()+
+  geom_raster(data = LUmap, aes(x = x, y = y, fill = as.factor(Background_20_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", guide = F) +
+  new_scale_fill() +
+  geom_point(data=TNSD, 
+             aes(x=OST_CHTOPO, y=NORD_CHTOPO, fill=Tropical_nights), 
+             colour="black", size=8, pch=21) +
+  labs(title="Berner Tropennächte 2023") +
+  scale_fill_stepsn(limits=c(-1,12), breaks=c(0,2,4,6,8,10,12), 
+                    labels=c("0","1 - 2","3 - 4","5 - 6","7 - 8","9 - 10","> 10"),
+                    colors = colorscheme4, name="Anzahl", guide="legend") +
+  theme_minimal() +
+  theme(panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position=c(0.1,0.185),
+        legend.background=element_rect(fill="white", color="black"),
+        legend.key.size=(unit(0.8, "cm")),
+        legend.text=element_text(size=14),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-20,t=5) ,size=18))
+
+TN_map
+```
+
+```{r map_SD, echo = F}
+colorscheme2<-c("yellow","orange", "#bd0026","#550011")
+
+HD_map<-
+  ggplot()+
+  geom_raster(data = LUmap, aes(x = x, y = y, fill = as.factor(Background_20_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", name=NULL, guide = F) +
+  new_scale_fill() +
+  geom_point(data=TNSD, 
+             aes(x=OST_CHTOPO, y=NORD_CHTOPO, fill=Hot_days), 
+             colour="black", size=8, pch=21) + 
+  labs(title="Berner Hitzetage 2023")+
+  scale_fill_stepsn(limits=c(0,50), breaks=c(10,20,30,40), 
+                    labels=c("< 10","11 - 20","21 - 30","31 - 40"),
+                    colors = colorscheme2, name="Anzahl", guide="legend")+
+  theme_minimal()+
+  theme(panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position=c(0.105,0.135),
+        legend.background=element_rect(fill="white", color="black"),
+        legend.key.size=(unit(0.8, "cm")),
+        legend.text=element_text(size=14),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-20,t=5) ,size=18))
+
+HD_map
+```
+
+
+# Custom map for the Summer of 2023
+Bedtime temperatures during the heatwave from 18th to 24th August.
+
+```{r}
+# Preprocess nighttime temperatures
+bedtime <- data |>
+  filter(month(Time) == 8, 
+         day(Time) >= 18,
+         day(Time) <= 24,
+         hour(Time) == 22) |>
+  summarise_all(~ mean(., na.rm = TRUE)) |>
+  dplyr::select(-Time) |>
+  dplyr::select(-Log_28, #`Parkli bei Eigerplatz`,
+                -Log_141, #`Viererfeld 2 (Schacht)`,
+                -Log_142, #`Viererfeld 3 (Strasse Sud)`,
+                -Log_143, #`Viererfeld 4 (Strasse Nord)`,
+                -Log_144, #`Viererfeld 5 (Mittelfeld)`,
+                -Log_16, #`Bubenbergplatz`,
+                -Log_124, #`Barenplatz`,
+                -Log_34, #`Kasernenareal`,
+                -Log_126, #`Optingenstrasse`,
+                -Log_162, #`Ostermundigen Poststrasse`,
+                -Log_161, #`Ostermundigen Schermenweg`,
+                -Log_153, #`Ostermundigen Wegmuhlegassli`,
+                -Log_14, # Helvetiaplatz,
+                -Log_102, #`Vordere Langgasse`,
+                -Log_98, #`Zollikofen 2m`,
+                -Log_71, #Hirschengraben,
+                -Log_45 #`Zytglogge`
+                )
+  
+  
+# Transpose the table to get the logger names as rows
+bedtime <- as.data.frame(t(head(bedtime))) |> 
+  rename(bedtime_T = V1) |> 
+  rownames_to_column(var = "Log_name") |>
+  mutate(bedtime_T = round(bedtime_T, digits = 1))
+
+# Join to the TNSD table to get the coordinates
+bedtime <- bedtime |> left_join(TNSD, by = "Log_name") |>
+  drop_na()
+```
+
+```{r}
+colorscheme5<-c("#C0A033", "orange", "#bd4026", "#551111", "#330000")
+
+BT_map <-
+  ggplot()+
+  geom_raster(data = LUmap, aes(x = x, y = y, fill = as.factor(Background_20_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", guide = F) +
+  new_scale_fill() +
+  geom_text(data=bedtime, 
+             aes(label = bedtime_T, x=OST_CHTOPO, y=NORD_CHTOPO, colour=bedtime_T), 
+             size=5, fontface = "bold") +
+  labs(title="Einschlaftemperaturen zwischen 22 und 23 Uhr (18. - 24. August)") +
+  scale_colour_stepsn(limits=c(21,30), breaks=c(22:30), 
+                    colors = colorscheme5) +
+  theme_minimal() +
+  theme(panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        # legend.position=c(0.1,0.185),
+        # legend.background=element_rect(fill="white", color="black"),
+        # legend.key.size=(unit(0.8, "cm")),
+        # legend.text=element_text(size=14),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-20,t=5) ,size=18))
+
+BT_map
+```
+
+```{r export, include = F}
+ggsave("TN_map.jpg", TN_map, path="../figures/2023", width=10, height=9.5375)
+ggsave("HD_map.jpg", HD_map, path="../Figures/2023", width=10, height=9.5375)
+ggsave("VD_map.jpg", VD_map, path="../Figures/2023", width=10, height=9.5375)
+ggsave("BT_map.jpg", BT_map, path="../Figures/2023", width=10, height=9.5375)
+```
+
+
+# Maps for the Commune of Ostermundigen
+```{r}
+LUmap_OM <- raster("../data/Tiffs/Background_OM_WGS84.tif") |>
+  as.data.frame(xy=T) |>
+  mutate(Background_OM_WGS84 = ifelse(Background_OM_WGS84 == 0, NA, Background_OM_WGS84))
+
+TNSD_OM <- TNSD |>
+  dplyr::select(starts_with("Ostermundigen"))
+
+# color scheme for LUmap:
+# 1= Buildings
+# 2= Sealed       
+# 3= Garden       
+# 4= Acriculture  
+# 5= Forest    
+# 6= Water   
+value_colors <- c("grey72", "grey72", "lightgrey", "lightgrey", "grey68", "lightblue")
+```
+
+
+```{r}
+VD_map <-
+  ggplot() +
+  geom_raster(data = LUmap_OM, aes(x = x, y = y, fill = as.factor(Background_OM_WGS84))) +
+  scale_fill_manual(values = value_colors, na.value = "white", name = NULL, guide = FALSE) +
+  new_scale_fill() +
+  geom_point(data = filter(TNSD, OST_CHTOPO >= min(LUmap_OM$x) & OST_CHTOPO <= max(LUmap_OM$x) &
+                             NORD_CHTOPO >= min(LUmap_OM$y) & NORD_CHTOPO <= max(LUmap_OM$y)),
+             aes(x = OST_CHTOPO, y = NORD_CHTOPO, fill = valid_days_percent),
+             colour = "black", size = 10, pch = 21) +
+  coord_cartesian(xlim = c(min(LUmap_OM$x), max(LUmap_OM$x)), ylim = c(min(LUmap_OM$y), max(LUmap_OM$y))) +
+  labs(title = "Anteil Messtage mit > 80% Datenabdeckung (Juni-August)") +
+  scale_fill_stepsn(limits=c(0.79,1), breaks=c(0.80,0.90,0.95,0.99,1), 
+                    labels=c("< 80","81 - 90","91 - 95","96 - 99","99 - 100"),
+                    colors = colorscheme5, name = "Anteil in %", guide = "legend") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = c(0.865, 0.22),
+        legend.background = element_rect(fill = "white", color = "black"),
+        legend.key.size = (unit(0.7, "cm")),
+        legend.text = element_text(size = 12),
+        plot.title = element_text(hjust = 0.5, margin = margin(b = -5, t = 5), size = 14))
+
+VD_map
+
+ggsave("OM_VD_map.jpg", VD_map, path = "../figures/2023", width = 6, height = 7)
+
+```
+
+```{r}
+TN_map<-
+  ggplot()+
+  geom_raster(data = LUmap_OM, aes(x = x, y = y, fill = as.factor(Background_OM_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", name=NULL, guide = F) +
+  new_scale_fill() +
+  geom_point(data = filter(TNSD, OST_CHTOPO >= min(LUmap_OM$x) & OST_CHTOPO <= max(LUmap_OM$x) &
+                             NORD_CHTOPO >= min(LUmap_OM$y) & NORD_CHTOPO <= max(LUmap_OM$y)),
+             aes(x = OST_CHTOPO, y = NORD_CHTOPO, fill = Tropical_nights),
+             colour = "black", size = 10, pch = 21) +
+  coord_cartesian(xlim = c(min(LUmap_OM$x), max(LUmap_OM$x)), ylim = c(min(LUmap_OM$y), max(LUmap_OM$y))) +
+  labs(title="Ostermundiger Tropennächte 2023") +
+  scale_fill_stepsn(limits=c(-1,17), breaks=c(0,2,5,8,10,15,17), 
+                    labels=c("0","1 - 2","3 - 5","6 - 8","9 - 10","10 - 15","> 15"),
+                    colors = colorscheme4, name="Anzahl", guide="legend") +
+  theme_minimal()+
+  theme(panel.grid = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position=c(0.88,0.28),
+        legend.background=element_rect(fill="white", color="black"),
+        legend.key.size=(unit(0.7, "cm")),
+        legend.text=element_text(size=12),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-5,t=5) ,size=14))
+
+TN_map
+
+ggsave("OM_TN_map.jpg", TN_map, path="../figures/2023", width=6, height=7)
+```
+
+```{r}
+HD_map<-
+  ggplot()+
+  geom_raster(data = LUmap_OM, aes(x = x, y = y, fill = as.factor(Background_OM_WGS84))) +
+    scale_fill_manual(values = value_colors, na.value = "white", name=NULL, guide = F) +
+  new_scale_fill() +
+  geom_point(data = filter(TNSD, OST_CHTOPO >= min(LUmap_OM$x) & OST_CHTOPO <= max(LUmap_OM$x) &
+                             NORD_CHTOPO >= min(LUmap_OM$y) & NORD_CHTOPO <= max(LUmap_OM$y)),
+             aes(x = OST_CHTOPO, y = NORD_CHTOPO, fill = Hot_days),
+             colour = "black", size = 10, pch = 21) +
+  coord_cartesian(xlim = c(min(LUmap_OM$x), max(LUmap_OM$x)), ylim = c(min(LUmap_OM$y), max(LUmap_OM$y))) +
+  labs(title="Ostermundiger Hitzetage 2023")+
+  scale_fill_stepsn(limits=c(19,35), breaks=c(23, 26, 29, 32, 35), 
+                    labels=c("20 - 23","24 - 26","27 - 29", "30 - 32", "> 32"),
+                    colors = colorscheme2, name="Anzahl", guide="legend")+
+  theme_minimal()+
+  theme(panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position=c(0.865,0.22),
+        legend.background=element_rect(fill="white", color="black"),
+        legend.key.size=(unit(0.7, "cm")),
+        legend.text=element_text(size=12),
+        plot.title = element_text(hjust=0.5, margin=margin(b=-5,t=5) ,size=14))
+
+HD_map
+
+ggsave("OM_HD_map.jpg", HD_map, path="../figures/2023", width=6, height=7)
+```
+

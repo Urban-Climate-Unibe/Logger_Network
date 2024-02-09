@@ -1,4 +1,13 @@
+
 fill_missing_temperatures <- function(x,max_gap) {
+
+#' ToDo description
+#'
+#' @param x A vector
+#' @returns A vector gapfilled
+#' @examples
+
+
 
     # Length of the input vector
     n <- length(x)

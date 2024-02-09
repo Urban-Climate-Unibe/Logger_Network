@@ -1,5 +1,18 @@
+
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
 Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0){
+
+#' Download the temperature measurement data from the grafana server and put it into a nice table.
+#'
+#' @param date_start A character string containing the first day of data to download. Default is yesterday.
+#' @param date_end A character string containing the last day. Default is 50 days ago.
+#' @param write_csv A Boolean indicating whether the data should be directly saved into a csv. Default is TRUE.
+#' @param interpolate A Boolean indicating whether missing data should be interpolated. Default is TRUE.
+#' @returns A dataframe containing the downloaded data in tidy format.
+#' @examples
+#' Logger_data(date_start = "2023-05-01", date_end = "2023-09-01", write_csv = T, interpolate = 0)
+
+
   if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")} #setting correct working-directory
 
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
@@ -57,7 +70,7 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
     }
 
     if (write_csv) {
-      write_csv(result,paste0("../data/Logger_data_",date_start,"_",date_end,".csv"))
+      write_csv(result,paste0("../data/Logger_data_T_",date_start,"_",date_end,".csv"))
     }
 
     return(result)
