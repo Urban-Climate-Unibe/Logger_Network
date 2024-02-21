@@ -18,6 +18,8 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
   source("../R/load_packages.R")#source loading function
   load_packages(packages) #load and install if required the packages
+  source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
+  meta <- read_csv("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/data/meta_complete.csv")
 
   token = "tu3zUeCazQobS4TrIIRftQS3Tr4xoZQoZaRf0Ve0iCrU4LZSY1jTS3laCJ_OjwJxWJ6WsKuwXN_tVV10R73hyg==" #token for access of data
 
@@ -34,7 +36,8 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
     mutate(Code_grafana = name) #add code grafana for joining
 
 
-  meta <- read_csv("../data/meta_complete.csv")|> #reading complete metadata
+  # meta <- read_csv("../data/meta_complete.csv")|> #reading complete metadata, now by github
+  meta |>
     mutate(Quali = if_else(is.na(Quali),1,Quali),
            End = if_else(is.na(End),Sys.Date(),End))|>#end and quali formatting
     filter(Quali != 0) #removing bad quality data
@@ -63,7 +66,7 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 
 
     if(interpolate > 0){
-      source("../R/interpolate.R") #Check for functionality!
+      # source("../R/interpolate.R") #Now loaded via github
       # Apply the function to the temperature column
       result <- result |>
         mutate_all(~ fill_missing_temperatures(.,max_gap = interpolate))
