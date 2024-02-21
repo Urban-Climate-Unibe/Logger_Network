@@ -16,10 +16,10 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
   if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")} #setting correct working-directory
 
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
-  source("../R/load_packages.R")#source loading function
-  load_packages(packages) #load and install if required the packages
+  suppressMessages(source("../R/load_packages.R"))#source loading function
+  suppressMessages(load_packages(packages)) #load and install if required the packages
   source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
-  meta <- read_csv("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/data/meta_complete.csv")
+  meta <- read_csv("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/data/meta_complete.csv", show_col_types = FALSE)
 
   token = "tu3zUeCazQobS4TrIIRftQS3Tr4xoZQoZaRf0Ve0iCrU4LZSY1jTS3laCJ_OjwJxWJ6WsKuwXN_tVV10R73hyg==" #token for access of data
 
@@ -37,7 +37,7 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 
 
   # meta <- read_csv("../data/meta_complete.csv")|> #reading complete metadata, now by github
-  meta |>
+  meta <- meta |>
     mutate(Quali = if_else(is.na(Quali),1,Quali),
            End = if_else(is.na(End),Sys.Date(),End))|>#end and quali formatting
     filter(Quali != 0) #removing bad quality data
@@ -46,7 +46,7 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
     filter(date(time) >= Start & date(time) <= End) |>ungroup()|> #now correct ones are assigned by date
     mutate(time = round_date(time, unit = "10 minutes")) |> # round to 10minutes interval
     group_by(time, Log_NR) |> #group now to mean since some may have several
-    summarize(temperature = mean(decoded_payload_temperature, na.rm = TRUE)) |> #now summarize
+    summarize(temperature = mean(decoded_payload_temperature, na.rm = TRUE), .groups = "drop") |> #now summarize
     ungroup() |>#important for order
     arrange(Log_NR,time) #now can be arranged
 
