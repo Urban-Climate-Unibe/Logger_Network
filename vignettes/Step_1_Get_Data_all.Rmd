@@ -25,7 +25,7 @@ The function sorts the data into two big tables (temperature and relative humidi
 ```{r currentloggers, indlude = F}
 source("../R/Logger_Data.R")
 
-data <- Logger_data(date_start = "2023-08-01",date_end = "2023-09-01",interpolate = 3)
+data <- Logger_data(date_start = "2023-05-01",date_end = "2023-09-01",interpolate = 3)
 
 
 ```

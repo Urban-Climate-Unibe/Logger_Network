@@ -1,6 +1,6 @@
 
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
-Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0){
+Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0){
 
 #' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
@@ -13,10 +13,10 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 #' Logger_data(date_start = "2023-05-01", date_end = "2023-09-01", write_csv = T, interpolate = 0)
 
 
-  if(sub(".*/([^/]+)$", "\\1", getwd())!= "vignettes"){setwd("./vignettes")} #setting correct working-directory
+   #setting correct working-directory
 
   packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
-  suppressMessages(source("../R/load_packages.R"))#source loading function
+  suppressMessages(source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/load_packages.R"))#source loading function
   suppressMessages(load_packages(packages)) #load and install if required the packages
   source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
   meta <- read_csv("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/data/meta_complete.csv", show_col_types = FALSE)
@@ -29,9 +29,20 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
 
 
 
+  # Create a sequence of dates from start to end in steps of 3 months for stability
+  date_seq <- seq.Date(from = as.Date(date_start), to = as.Date(date_end), by = "3 months")
+
+  data_current <- list()
+  for (date in as.list(date_seq)) {
+    print(date)
+    if(date+months(3)<as.Date(date_end)){date_end_local <- date+months(3)}else{date_end_local <- as.Date(date_end)}
+    print(date_end_local)
+    data_current[[length(data_current)+1]] <- client$query(paste0('from(bucket: "smcs") |> range(start: ', as.character(date), ', stop: ', date_end_local, ') |> filter(fn: (r) => r["_measurement"] == "mqtt_consumer") |> filter(fn: (r) => r["_field"] == "decoded_payload_temperature" or r["_field"] == "decoded_payload_humidity") |> filter(fn: (r) => r["topic"] != "v3/dynamicventilation@ttn/devices/eui-f613c9feff19276a/up") |> filter(fn: (r) => r["topic"] != "helium/eeea9617559b/rx") |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")'))
+  }
+
   # Get the data from grafana.
-  tables <- client$query(paste0('from(bucket: "smcs") |> range(start: ', date_start, ', stop: ', date_end, ') |> filter(fn: (r) => r["_measurement"] == "mqtt_consumer") |> filter(fn: (r) => r["_field"] == "decoded_payload_temperature" or r["_field"] == "decoded_payload_humidity") |> filter(fn: (r) => r["topic"] != "v3/dynamicventilation@ttn/devices/eui-f613c9feff19276a/up") |> filter(fn: (r) => r["topic"] != "helium/eeea9617559b/rx") |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")'))
-  tables <- bind_rows(tables) |> #binding since better this way, tidy
+
+  tables <- bind_rows(data_current) |> #binding since better this way, tidy
     mutate(across(starts_with("_"), ~as.POSIXct(., format="%Y-%m-%dT%H:%M:%S%z")))|> #format time
     mutate(Code_grafana = name) #add code grafana for joining
 
@@ -72,8 +83,16 @@ Logger_data <- function(date_start = as.character(Sys.Date()-50),date_end = as.c
         mutate_all(~ fill_missing_temperatures(.,max_gap = interpolate))
     }
 
+
     if (write_csv) {
-      write_csv(result,paste0("../data/Logger_data_T_",date_start,"_",date_end,".csv"))
+      # Define the folder path
+      folder_path <- "./data/"
+
+      # Check if the folder exists, create it if it doesn't
+      if (!file.exists(folder_path)) {
+        dir.create(folder_path, recursive = TRUE)
+      }
+      write_csv(result,paste0("./data/Logger_data_T_",date_start,"_",date_end,".csv"))
     }
 
     return(result)
