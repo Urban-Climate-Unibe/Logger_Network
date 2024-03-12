@@ -1,6 +1,6 @@
 
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
-Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0){
+Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0,type = "temperature"){
 
 #' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
@@ -11,7 +11,7 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
 #' @returns A dataframe containing the downloaded data in tidy format.
 #' @examples
 #' Logger_data(date_start = "2023-05-01", date_end = "2023-09-01", write_csv = T, interpolate = 0)
-
+  # Time is in utc!
 
    #setting correct working-directory
 
@@ -57,21 +57,35 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
     filter(date(time) >= Start & date(time) <= End) |>ungroup()|> #now correct ones are assigned by date
     mutate(time = round_date(time, unit = "10 minutes")) |> # round to 10minutes interval
     group_by(time, Log_NR) |> #group now to mean since some may have several
-    summarize(temperature = mean(decoded_payload_temperature, na.rm = TRUE), .groups = "drop") |> #now summarize
+    summarize(temperature = mean(decoded_payload_temperature, na.rm = TRUE),
+              humidity = mean(decoded_payload_humidity, na.rm = TRUE), .groups = "drop") |> #now summarize
     ungroup() |>#important for order
     arrange(Log_NR,time) #now can be arranged
 
 
+if(type == "temperature"){
+  result <- result|> select(temperature,time,Log_NR)|>
+    pivot_wider(
+      names_from = Log_NR,
+      values_from = temperature,
+      id_cols = time
+    )|>#now make correct format in wide
+    ungroup()|>
+    arrange(time)|>
+    rename_at(vars(-1), ~paste0("Log_", .))#rename
+}else{
+  result <- result|> select(humidity,time,Log_NR)|>
+    pivot_wider(
+      names_from = Log_NR,
+      values_from = humidity,
+      id_cols = time
+    )|>#now make correct format in wide
+    ungroup()|>
+    arrange(time)|>
+    rename_at(vars(-1), ~paste0("Log_", .))#rename
 
-    result <- result|> select(temperature,time,Log_NR)|>
-      pivot_wider(
-        names_from = Log_NR,
-        values_from = temperature,
-        id_cols = time
-      )|>#now make correct format in wide
-      ungroup()|>
-      arrange(time)|>
-      rename_at(vars(-1), ~paste0("Log_", .))#rename
+}
+
 
 
 
@@ -92,7 +106,10 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
       if (!file.exists(folder_path)) {
         dir.create(folder_path, recursive = TRUE)
       }
-      write_csv(result,paste0("./data/Logger_data_T_",date_start,"_",date_end,".csv"))
+      if(type == "temperature"){write_csv(result,paste0("./data/Logger_data_T_",date_start,"_",date_end,".csv"))}else{
+        write_csv(result,paste0("./data/Logger_data_H_",date_start,"_",date_end,".csv"))
+      }
+
     }
 
     return(result)
