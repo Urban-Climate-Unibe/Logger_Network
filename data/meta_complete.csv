@@ -10,11 +10,11 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E
 16,Bubenbergplatz,Bubenbergplatz,1564ef396f0f,46.94728,7.43843,2599984.7,1199577.3,542.5,Hauptnetz,BERNMOBIL,Masten,nein,6/16/23,NA,1
 17,Rosengarten,Rosengarten,e31e30079a9c,46.95188,7.4602,2601641.8,1200088.5,568.4,Hauptnetz,Stadtgrun,Laterne,nein,5/12/23,NA,1
 19,Galgenfeld Neubausiedlung,Galgenfeld Neubausiedlung,79ecf19c1a47,46.95063,7.46987,2602378.1,1199950.3,579.2,Hauptnetz,ewb,Strassenlampe,nein,5/10/23,NA,1
-21,Gaswerkareal Industrie EWB,Gaswerk,5c50c3270b91,46.93964,7.44166,2600230.5,1198727.9,502.9,Hauptnetz,"Zaun,",Schild,nein,5/24/23,NA,1
+21,Gaswerkareal Industrie EWB,Gaswerk,5c50c3270b91,46.93964,7.44166,2600230.5,1198727.9,502.9,Hauptnetz,"Zaun,",Schild,nein,5/24/23,4/2/24,1
 22,Matte Muhleplatz,Matte Muhleplatz,b6fe2ab80321,46.94701,7.45583,2601309.3,1199546.8,499.5,Hauptnetz,TAB,Verkehrsschild,nein,5/24/23,NA,1
 23,"Ostermundigen, Ahornstr 16",Ostermundigen Ahornstrasse,84251a508492,46.95566,7.49879,2604579.1,1200510.9,574.6,Hauptnetz,Gemeinde Ostermundigen,Strassenlampe,nein,5/11/23,NA,1
 25,Koniz Neubausiedlung,Liebefeld,e15a04fd7037,46.92781,7.42031,2598604.9,1197412.9,567.2,Hauptnetz,Gemeinde Koniz,Lampe,ja,5/9/23,NA,1
-26,Inselspital,Inselspital,7b36c77aba0d,46.94719,7.42571,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,5/10/23,NA,1
+26,Inselspital,Inselspital,7b36c77aba0d,46.94719,7.42571,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,5/10/23,4/2/24,1
 28,Parkli bei Eigerplatz,Parkli bei Eigerplatz,86e2042d6857,46.94195,7.43094,2599414.5,1198984.7,524.5,Hauptnetz,ewb,Pfosten,nein,5/10/23,NA,1
 30,Galgenfeld Industrie,Galgenfeld Industrie,634f68b0c0c6,46.95553,7.47194,2602535.5,1200495.3,563.6,Hauptnetz,ewb,Strassenlampe,nein,5/10/23,NA,1
 31,Koniz Aussenquartier,Weiermatt,6e0aef9d54be,46.92041,7.40995,2597815.3,1196590.8,577.2,Hauptnetz,Gemeinde Koniz,Strassenlampe,nein,5/8/23,NA,1
@@ -88,3 +88,5 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E
 89,Gurten Kulm,Gurten Kulm,2e15ffacceab,46.91833,7.43971,2600082,1196359.1,848,Hauptnetz,ewb,Strassenlampe,nein,5/17/23,7/27/23,1
 128,Schosshaldenfriedhof,Schosshaldenfriedhof,75a4a50dfb2c,46.95342,7.47165,2602513.5,1200260.3,568.1,Monitoring intern,Stadtgrun,Mobile Stange,nein,5/24/23,6/16/23,1
 162,Ostermundigen Postgasse,Ostermundigen Poststrasse,b60acb7fff9f,46.95867,7.48222,2603317.7,1200844.3,551.5,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,5/11/23,6/16/23,1
+21,Gaswerkareal Industrie EWB,Gaswerk,5c50c3270b91,46.93964,7.44166,2600230.5,1198727.9,502.9,Hauptnetz,"Zaun,",Schild,nein,5/2/24,NA,1
+26,Inselspital,Inselspital,7b36c77aba0d,46.94719,7.42571,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,5/2/24,NA,1
