@@ -49,6 +49,8 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
 
   # meta <- read_csv("../data/meta_complete.csv")|> #reading complete metadata, now by github
   meta <- meta |>
+    mutate(End = as.Date(End, format = "%m/%d/%y"),
+           Start = as.Date(Start, format = "%m/%d/%y"))|>
     mutate(Quali = if_else(is.na(Quali),1,Quali),
            End = if_else(is.na(End),Sys.Date(),End))|>#end and quali formatting
     filter(Quali != 0) #removing bad quality data
