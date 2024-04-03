@@ -94,4 +94,4 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E
 135,Optingenstrasse Süd,Optingenstrasse Süd,cad06aabf023,46.95439,7.44938,2600818,1200367,558.5,Monitoring intern?,TAB?,Verkehrsschild,nein,21.03.2024,,1
 136,Optingenstrasse Nord,Optingenstrasse Nord,a3841c1842b4,46.95672,7.45081,2600927,1200627,555.4,Monitoring intern?,TAB?,Strassenlampe?,Nein,21.03.2024,,1
 134,Vorplatz Baerenplatz,Vorplatz Baerenplatz,5e37031f7f2b,46.94823,7.45974,2601607,1199683,520.6,?,?,?,Nein,16.03.2024,,1
-26,Inselspital,Inselspital,a3841c1842b4,46.94719,7.42571,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,27.03.2024,,1
+26,Inselspital,Inselspital,c1c63230dd69,46.94719,7.42571,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,27.03.2024,,1
