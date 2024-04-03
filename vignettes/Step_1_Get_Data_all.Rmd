@@ -23,9 +23,10 @@ The function also interpolates missing data by a maximum of two timesteps before
 Metadata tables that contain the station name, grafana codes, coordinates and installation data of each logger (also replaced loggers) are used to get the data from all loggers that were running in the chosen time frame. 
 The function sorts the data into two big tables (temperature and relative humidity) with rounded 10 minute timesteps and a separate column for each logger. 
 ```{r currentloggers, indlude = F}
-source("../R/Logger_Data.R")
+# source("../R/Logger_Data.R")
+source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
-data <- Logger_data(date_start = "2023-05-01",date_end = "2023-09-01",interpolate = 3)
+data <- Logger_data(date_start = "2024-04-01",interpolate = 0, write_csv = T)
 
 
 ```

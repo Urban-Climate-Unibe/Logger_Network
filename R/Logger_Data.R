@@ -1,6 +1,6 @@
 
 ###date_start = "2023-05-01",date_end = "2023-09-01"###
-Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Date()-1),write_csv = T,interpolate = 0,type = "temperature"){
+Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Date()),write_csv = T,interpolate = 0,type = "temperature"){
 
 #' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
@@ -19,7 +19,8 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
   suppressMessages(source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/load_packages.R"))#source loading function
   suppressMessages(load_packages(packages)) #load and install if required the packages
   source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
-  meta <- read_csv("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/data/meta_complete.csv", show_col_types = FALSE)
+
+  meta <- read_csv("https://raw.githubusercontent.com/Urban-Climate-Unibe/Logger_Network/main/data/metadata_gen_2.csv", show_col_types = FALSE)
 
   token = "tu3zUeCazQobS4TrIIRftQS3Tr4xoZQoZaRf0Ve0iCrU4LZSY1jTS3laCJ_OjwJxWJ6WsKuwXN_tVV10R73hyg==" #token for access of data
 
@@ -34,6 +35,7 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
 
   data_current <- list()
   for (date in as.list(date_seq)) {
+    print("Loading date range:")
     print(date)
     if(date+months(3)<as.Date(date_end)){date_end_local <- date+months(3)}else{date_end_local <- as.Date(date_end)}
     print(date_end_local)
@@ -49,9 +51,9 @@ Logger_data <- function(date_start = "2023-04-01",date_end = as.character(Sys.Da
 
   # meta <- read_csv("../data/meta_complete.csv")|> #reading complete metadata, now by github
   meta <- meta |>
-    mutate(End = as.Date(End, format = "%m/%d/%y"),
-           Start = as.Date(Start, format = "%m/%d/%y"))|>
-    mutate(Quali = if_else(is.na(Quali),1,Quali),
+    mutate(End = as.Date(End, format = "%d.%m.%Y"),
+           Start = as.Date(Start, format = "%d.%m.%Y"))|>
+    mutate(
            End = if_else(is.na(End),Sys.Date(),End))|>#end and quali formatting
     filter(Quali != 0) #removing bad quality data
 
