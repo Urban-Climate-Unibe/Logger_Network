@@ -1,10 +1,10 @@
-Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Doppel_Messnetz_23,Start,End,Quali
+Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Doppel_Messnetz_23,Start,End,Quali
 1,VonRoll PH,VonRoll,02f54063d5c4,46.95291,7.42252,2598773.7,1200203.5,553.9,Hauptnetz,Uni Bern (VonRoll) & EWB,Lichtmasten,ja,09.05.2023,,1
 2,Europaplatz,Europaplatz,d60444822c13,46.94333,7.40633,2597540.6,1199138.8,555.5,Hauptnetz,BERNMOBIL,Masten,nein,10.05.2023,,1
 7,Kreuzung Brunmatt- Schwarztorstrasse,Brunnhof,23c9b05d9c07,46.94479,7.42713,2599124.4,1199300.1,528.6,Hauptnetz,TAB,Ampel,nein,10.05.2023,,1
 8,Wankdorf ESP,Wankdorf ESP,3b2fc2434bc8,46.968,7.46247,2601814.2,1201881.4,550.5,Hauptnetz,ewb,Strassenlampe,nein,06.06.2023,,1
 9,Bremgartenfriedhof,Bremgartenfriedhof,3ff9a6a3e7cf,46.9503,7.42015,2598592.61,1199912.8,552.4,Hauptnetz,Stadtgrun,Laterne,nein,12.05.2023,,1
-10,"Langgasse, Neufeldstrasse 135",Hintere Langgasse,835e566128f7,46.95789,7.43541,2599754.9,200756.72,558.5,Hauptnetz,ewb,Strassenlampe,nein,24.05.2023,,1
+10,"Langgasse, Neufeldstrasse 135",Hintere Langgasse,835e566128f7,46.95789,7.43541,2599754.9,1200756.72,558.5,Hauptnetz,ewb,Strassenlampe,nein,24.05.2023,,1
 13,Egelsee,Egelsee,f1c322fed147,46.94469,7.46442,2601963,1199289.4,549.1,Hauptnetz,??? (egal),Lampe,ja,10.05.2023,,1
 14,Helvetiaplatz,Helvetiaplatz,d84fa928944b,46.94381,7.44885,2600777.8,1199191.1,530.8,Hauptnetz,TAB,Verkehrsschild,ja,01.06.2023,,1
 16,Bubenbergplatz,Bubenbergplatz,1564ef396f0f,46.94728,7.43843,2599984.7,1199577.3,542.5,Hauptnetz,BERNMOBIL,Masten,nein,16.06.2023,,1
