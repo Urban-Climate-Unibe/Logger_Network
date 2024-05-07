@@ -59,7 +59,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 102,"Vorderes LG-Quartier, Falkenweg 5",Vordere Langgasse,2b71f57ca11c,46.95171,7.43714,2599886.1,1200069.3,561.6,Hauptnetz,ewb,Strassenlampe,ja,08.05.2023,,1
 111,Tellstrasse,Tellstrasse,68d17acb4c7c,46.96017,7.46146,2601737.6,1201010.4,556.1,Monitoring intern,BERNMOBIL,Masten,nein,10.05.2023,,1
 112,"Ausserholligen 1, Post",Ausserholligen Post,f9c2d2bbe84f,46.94755,7.40188,2597202.2,1199607.9,547.9,Monitoring intern,Post,Strassenlampe,nein,12.05.2023,,1
-113,"Ausserholligen 2, ewb",Ausserholligen ewb,4f5e9a2b9675,46.94542,7.40642,2594547.7,1199371.3,547.6,Monitoring intern,ewb,Strassenlampe,nein,12.05.2023,,1
+113,"Ausserholligen 2, ewb",Ausserholligen ewb,4f5e9a2b9675,46.94542,7.40642,2597547.3,1199371.3,547.6,Monitoring intern,ewb,Strassenlampe,nein,12.05.2023,,1
 116,Ansermetplatz,Ansermetplatz,061bc5815e5a,46.94787,7.37708,2595313.7,1199645,545.2,Hauptnetz,ewb,Strassenlampe,nein,12.05.2023,,1
 117,Koniztal,Koniztal,37464e90ede9,46.90961,7.44248,2600293.4,1195389.8,631,Hauptnetz,Bauer,Schild,nein,09.05.2023,,1
 124,Barenplatz,Barenplatz,995c5da790ca,46.94814,7.44366,2600382.9,1199672.9,542.1,Monitoring intern,TAB,Maritstange,nein,24.05.2023,,1
