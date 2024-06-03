@@ -65,7 +65,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 124,Barenplatz,Barenplatz,995c5da790ca,46.94814,7.44366,2600382.9,1199672.9,542.1,Monitoring intern,TAB,Maritstange,nein,24.05.2023,,1
 126,Optingenstrasse,Optingenstrasse,5d922b8eddee,46.95597,7.45045,2600899.9,1200543.3,557.3,Monitoring intern,TAB,Verkehrsschild,nein,08.05.2023,,1
 127,Breitenrainplatz,Breitenrainplatz,58c0f9c55c8d,46.95838,7.45415,2601181.1,1200811.8,559.8,Monitoring intern,ewb,Strassenlampe,nein,08.05.2023,,1
-128,Schosshaldenfriedhof,Schosshaldenfriedhof,166584a41612,46.95342,7.47165,2602513.5,1200260.3,568.1,Monitoring intern,Stadtgrun,Mobile Stange,nein,16.06.2023,,1
+128,Schosshaldenfriedhof,Schosshaldenfriedhof,166584a41612,46.95342,7.47165,2602513.5,1200260.3,568.1,Monitoring intern,Stadtgrun,Mobile Stange,nein,16.06.2023,01.05.2024,1
 129,Laupenstrasse (ZBB),Laupenstrasse,c1c63230dd69,46.94734,7.43639,2599829,1199583.8,540.6,Monitoring intern,BERNMOBIL,Fahrplananzeigemasten,nein,12.05.2023,,1
 141,Viererfeld 2 (Schacht),Viererfeld 2 (Schacht),2512f6b6f8a7,46.96271,7.43688,2599866.3,1201293.1,571.1,Monitoring extern,eawag (?),Stange,nein,08.05.2023,,1
 142,Viererfeld 3 (Strasse Sud),Viererfeld 3 (Strasse Sud),34203a10c11a,46.96286,7.44009,2600111.1,1201309.4,564.2,Monitoring extern,ewb,Kandelaber,nein,11.05.2023,,1
