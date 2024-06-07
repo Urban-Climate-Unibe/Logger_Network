@@ -19,7 +19,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 30,Galgenfeld Industrie,Galgenfeld Industrie,634f68b0c0c6,46.95553,7.47194,2602535.5,1200495.3,563.6,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,,1
 31,Koniz Aussenquartier,Weiermatt,6e0aef9d54be,46.92041,7.40995,2597815.3,1196590.8,577.2,Hauptnetz,Gemeinde Koniz,Strassenlampe,nein,08.05.2023,,1
 32,Bremgartenwald,Bremgartenwald,2343056bd60f,46.95739,7.42128,2598679.5,1200701.4,552.3,Hauptnetz,Burgergemeinde,Baum,ja,16.05.2023,,1
-33,Dahlholzli-Wald,Dahlholzliwald,44d4eaca941f,46.93798,7.45656,2601365.1,1198543.6,535.2,Hauptnetz,Burgergemeinde,Baum (Fichte),ja,,,1
+33,Dahlholzli-Wald,Dahlholzliwald,44d4eaca941f,46.93798,7.45656,2601365.1,1198543.6,535.2,Hauptnetz,Burgergemeinde,Baum (Fichte),ja,16.05.2023,,1
 34,Kasernenareal,Kasernenareal,d0e2d4b4c052,46.95697,7.45801,2601475.3,1200654.6,559.4,Hauptnetz,Kasernenareal,Strassenlampe,ja,08.05.2023,,1
 36,Viktoriarain,Wyttenbachstrasse,017f7c0231ae,46.95518,7.44773,2600682.8,1200455.9,542.9,Hauptnetz,TAB,"Verkehrsschild 30, auf ca 2m75",nein,08.05.2023,,1
 37,"Lorraine, Steckweg 15",Lorraine,8ba39c865b00,46.95898,7.44513,2660494.4,120887.6,538.1,Hauptnetz,ewb,Strassenlampe,ja,08.05.2023,,1
