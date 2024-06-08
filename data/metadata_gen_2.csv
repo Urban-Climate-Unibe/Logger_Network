@@ -19,7 +19,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 30,Galgenfeld Industrie,Galgenfeld Industrie,634f68b0c0c6,46.95553,7.47194,2602535.5,1200495.3,563.6,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,,1
 31,Koniz Aussenquartier,Weiermatt,6e0aef9d54be,46.92041,7.40995,2597815.3,1196590.8,577.2,Hauptnetz,Gemeinde Koniz,Strassenlampe,nein,08.05.2023,,1
 32,Bremgartenwald,Bremgartenwald,2343056bd60f,46.95739,7.42128,2598679.5,1200701.4,552.3,Hauptnetz,Burgergemeinde,Baum,ja,16.05.2023,,1
-33,Dahlholzli-Wald,Dahlholzliwald,44d4eaca941f,46.93798,7.45656,2601365.1,1198543.6,535.2,Hauptnetz,Burgergemeinde,Baum (Fichte),ja,,,1
+33,Dahlholzli-Wald,Dahlholzliwald,44d4eaca941f,46.93798,7.45656,2601365.1,1198543.6,535.2,Hauptnetz,Burgergemeinde,Baum (Fichte),ja,16.05.2023,,1
 34,Kasernenareal,Kasernenareal,d0e2d4b4c052,46.95697,7.45801,2601475.3,1200654.6,559.4,Hauptnetz,Kasernenareal,Strassenlampe,ja,08.05.2023,,1
 36,Viktoriarain,Wyttenbachstrasse,017f7c0231ae,46.95518,7.44773,2600682.8,1200455.9,542.9,Hauptnetz,TAB,"Verkehrsschild 30, auf ca 2m75",nein,08.05.2023,,1
 37,"Lorraine, Steckweg 15",Lorraine,8ba39c865b00,46.95898,7.44513,2660494.4,120887.6,538.1,Hauptnetz,ewb,Strassenlampe,ja,08.05.2023,,1
@@ -65,7 +65,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 124,Barenplatz,Barenplatz,995c5da790ca,46.94814,7.44366,2600382.9,1199672.9,542.1,Monitoring intern,TAB,Maritstange,nein,24.05.2023,,1
 126,Optingenstrasse,Optingenstrasse,5d922b8eddee,46.95597,7.45045,2600899.9,1200543.3,557.3,Monitoring intern,TAB,Verkehrsschild,nein,08.05.2023,,1
 127,Breitenrainplatz,Breitenrainplatz,58c0f9c55c8d,46.95838,7.45415,2601181.1,1200811.8,559.8,Monitoring intern,ewb,Strassenlampe,nein,08.05.2023,,1
-128,Schosshaldenfriedhof,Schosshaldenfriedhof,166584a41612,46.95342,7.47165,2602513.5,1200260.3,568.1,Monitoring intern,Stadtgrun,Mobile Stange,nein,16.06.2023,,1
+128,Schosshaldenfriedhof,Schosshaldenfriedhof,166584a41612,46.95342,7.47165,2602513.5,1200260.3,568.1,Monitoring intern,Stadtgrun,Mobile Stange,nein,16.06.2023,01.05.2024,1
 129,Laupenstrasse (ZBB),Laupenstrasse,c1c63230dd69,46.94734,7.43639,2599829,1199583.8,540.6,Monitoring intern,BERNMOBIL,Fahrplananzeigemasten,nein,12.05.2023,,1
 141,Viererfeld 2 (Schacht),Viererfeld 2 (Schacht),2512f6b6f8a7,46.96271,7.43688,2599866.3,1201293.1,571.1,Monitoring extern,eawag (?),Stange,nein,08.05.2023,,1
 142,Viererfeld 3 (Strasse Sud),Viererfeld 3 (Strasse Sud),34203a10c11a,46.96286,7.44009,2600111.1,1201309.4,564.2,Monitoring extern,ewb,Kandelaber,nein,11.05.2023,,1
