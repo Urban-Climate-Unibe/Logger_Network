@@ -23,11 +23,10 @@ The function also interpolates missing data by a maximum of two timesteps before
 Metadata tables that contain the station name, grafana codes, coordinates and installation data of each logger (also replaced loggers) are used to get the data from all loggers that were running in the chosen time frame. 
 The function sorts the data into two big tables (temperature and relative humidity) with rounded 10 minute timesteps and a separate column for each logger. 
 ```{r currentloggers, indlude = F}
-source("../R/Logger_Data.R")
 source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
 data <- Logger_data("Bern", date_start = "2024-05-01",interpolate = 0, write_csv = T)
-data <- Logger_data("Thun", date_start = "2024-04-24", date_end = "2024-05-24", interpolate = 0, write_csv = T)
+data <- Logger_data("Thun", date_start = "2024-06-04", date_end = "2024-06-05", interpolate = 0, write_csv = F)
 
 
 ```
@@ -40,9 +39,43 @@ visdat::vis_miss(
   cluster = FALSE, 
   warn_large_data = FALSE
   )
+
+data_cleaned <- data |>
+  dplyr::select(-time) |>
+  dplyr::select(-Log_417)
+visdat::vis_value(data_cleaned)
 ```
 
+# Map missing data
+```{r}
+metadata <- read.csv("../Data/metadata_Thun.CSV") |>
+  mutate(Log_NR = paste0("Log_", Log_NR))
 
+data_missing <- data_cleaned |>
+  #summarize by counting how many rows contain NA and dividing by number of rows
+  summarize_all(~sum(is.na(.))/n()) |>
+  # Add column names as row
+  rbind(colnames(data_cleaned)) |>
+  t() |>
+  as.data.frame() |>
+  rename(missing = V1,
+         Log_NR = V2) |>
+  mutate(missing = as.numeric(missing) * 100)
+
+metadata <- metadata |>
+  left_join(data_missing, by = c("Log_NR"))
+
+pal <- leaflet::colorNumeric("plasma", domain = metadata$missing)
+
+leaflet::leaflet(metadata) |>
+  leaflet::addTiles() |>
+  leaflet::addCircleMarkers(~OST_CHTOPO, ~NORD_CHTOPO, 
+                            fillColor = ~pal(missing), radius = 6, fillOpacity = 1, 
+                            color = "black", weight = 1, opacity = 1, 
+                            popup = paste(
+                             "<strong>Measurement type: </strong>", round(metadata$missing))) |> #add link to database or publication) |>
+  leaflet::addLegend("bottomright", pal = leaflet::colorNumeric("plasma", domain = metadata$missing), values = metadata$missing, title = "Missing data in %")
+```
 
 
 

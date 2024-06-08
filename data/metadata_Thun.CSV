@@ -1,5 +1,5 @@
 Log_NR,STANDORT,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Nr_Strassenlaterne,LCZ,Start,End,Quali
-401,Referenz 3m,db01c2838caa ,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1
+401,Referenz 3m,db01c2838caa,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1
 402,Referenz 2m,de00e74e2441,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1
 403,Burgerwald,e9797673b958,46.75077,7.60025,1177744.305,2612349.203,,Thun Grundmessnetz,Schweizerische Eidgenossenschaft EMD,Baum,-,B,23.04.2024,,1
 404,Stockhorn Arena,85b515e15e67,46.74515,7.60521,1177120,2612729,,Thun Grundmessnetz,Genossenschaft Migros Aare Moosseedorf,Laternenpfahl auf Parkplatz,-,8,29.04.2024,,1
