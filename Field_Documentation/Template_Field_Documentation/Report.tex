@@ -1,0 +1,154 @@
+% Copyright by Patrick Bigler. 
+% If you want to use this template, please ask for permission: 
+% patrick.bigler1@students.unibe.ch or paedy87@gmail.com
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuration %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper]{article}
+%-------------------------------------------------------------------------------
+% font, language, margins etc...
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % special characters
+\usepackage{setspace} % double or single space
+\usepackage{siunitx} % provide a possibility to deal with SI units
+\usepackage{fancyhdr} % provide a possibility to deal with header and footer
+\usepackage[left=2.5cm, right=2.5cm, top=2.3cm, bottom=2.3cm]{geometry} % set margins
+\usepackage[cbgreek]{textgreek} % provides greek letters outside math mode
+\usepackage{dingbat}
+
+%-------------------------------------------------------------------------------
+% bibliography
+\usepackage[round]{natbib} % create own bibliography (APA Sytle)
+\usepackage[nottoc,numbib]{tocbibind} % Bibliography appears in toc
+\DeclareRobustCommand{\firstsecond}[2]{#1} % special citation (@misc in natbib)
+\usepackage{doi}
+%-------------------------------------------------------------------------------
+% abstract
+\usepackage{abstract}
+
+%-------------------------------------------------------------------------------
+% Linenumbers
+\usepackage{lineno}
+\usepackage{dashrule}
+%\linenumbers
+%\nolinenumbers
+
+%-------------------------------------------------------------------------------
+% Table of Contnets
+\renewcommand{\contentsname}{Table of Contents} % Change name of ToC
+
+%-------------------------------------------------------------------------------
+% tables
+\usepackage{multicol}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[font=footnotesize]{caption}
+\usepackage{booktabs} % design the table with toprule, midrule and bottomrule
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{lscape} 
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{lscape}
+
+%-------------------------------------------------------------------------------
+% figures
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+
+%-------------------------------------------------------------------------------
+% mathematics
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\newtheorem{definition}{Definition}
+\usepackage{array}
+%-------------------------------------------------------------------------------
+% SI unit
+\usepackage{siunitx} 
+
+%-------------------------------------------------------------------------------
+% chemistry
+\usepackage{mhchem}
+
+%-------------------------------------------------------------------------------
+% read programming like R or Python
+\usepackage{listings}
+
+%-------------------------------------------------------------------------------
+% link (internal & external)
+\usepackage{xurl}
+\usepackage[colorlinks=true, citecolor = red, linkcolor = blue, linkref=none]{hyperref}
+
+%-------------------------------------------------------------------------------
+% setlenghts & new commands
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{18pt}
+\setlength\parindent{0pt}
+\setlength\headheight{26pt} 
+\DeclareRobustCommand{\firstsecond}[2]{#1}
+
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small}
+\renewcommand{\arraystretch}{1.5}
+
+\onehalfspacing % line space 1.5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+
+%-------------------------------------------------------------------------------
+% header and foot settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Measurement Network Bern}
+\fancyhead[L]{\includegraphics[width=3cm]{Logo/UNiBern.jpeg}}
+%\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introduction %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/01_Frontpage}
+\clearpage
+
+\input{Chapters/02_Backpage}
+\clearpage
+
+
+
+%\input{Chapters/04_Appendix}
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+% line space 1
+\begin{singlespace}
+
+%-------------------------------------------------------------------------------
+% add bibliography
+%\nocite{*}
+%\bibliographystyle{agsm} % Harvard style %citation
+%\bibliography{biblio} % do not change the name (if you want to, please change the name in the outline as well!
+
+\end{singlespace}
+
+\end{document}
+
