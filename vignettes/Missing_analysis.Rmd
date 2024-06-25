@@ -1,0 +1,63 @@
+---
+title: "Maps"
+authors: 'Noémie Wellinger & Nils Tinner'
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+This Rmd script serves to download the measurement data (temperature) from the grafana server. 
+
+```{r libraries, include = F}
+library(influxdbclient)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+## Data from current loggers
+The time range of the data that should be downloaded can be set manually in the function Logger_data(). 
+By default, this function saves directly the downloaded data directly into a csv. Set the parameter write_csv = F, if you don't want that.
+The function also interpolates missing data by a maximum of two timesteps before and after the last recorded data. Set interpolate = F
+Metadata tables that contain the station name, grafana codes, coordinates and installation data of each logger (also replaced loggers) are used to get the data from all loggers that were running in the chosen time frame. 
+The function sorts the data into two big tables (temperature and relative humidity) with rounded 10 minute timesteps and a separate column for each logger. 
+```{r currentloggers, indlude = F}
+source("../R/Logger_Data.R")
+source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
+
+data <- Logger_data(city = "biel",date_start = "2024-05-01",interpolate = 0, write_csv = T)
+data <- Logger_data("Thun", date_start = "2024-04-24", date_end = "2024-05-24", interpolate = 0, write_csv = T)
+
+data_names <- data |> select(-1) |>colnames()
+meta_names <- paste0("Log_",unique(meta$Log_NR))
+
+missing_in_data <- setdiff(meta_names, data_names)
+
+
+# Newly missing data: 112 Ausserholligen1: Post -> Abgesoffen
+#83: Stadtlabor -> Abgesoffen
+#48: Viererfeld -> Working, new
+#52: Umland Bümpliz: 20.6 Install
+#68: Gleiswelle: ?
+#87: Engehalde Stauwehr -> Working, new
+#117, Köniztal: Working, false Code_Grafana???
+#128: Schosshaldenfriedhof -> Dismounted.
+
+```
+
+
+# Plot missing data
+```{r plots, include = T}
+visdat::vis_miss(
+  data,
+  cluster = FALSE, 
+  warn_large_data = FALSE
+  )
+```
+
+
+
+
+
+

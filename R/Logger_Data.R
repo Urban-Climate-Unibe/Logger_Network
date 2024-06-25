@@ -1,7 +1,7 @@
 
 # date_start = "2023-05-01"
 # date_end = "2023-09-01"
-Logger_data <- function(city, date_start = "2024-04-24",date_end = as.character(Sys.Date()),write_csv = T,interpolate = 0,type = "temperature"){
+Logger_data <- function(city = "Bern", date_start = "2024-03-18",date_end = as.character(Sys.Date()),write_csv = T,interpolate = 0,type = "temperature"){
 
 #' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
@@ -22,11 +22,16 @@ Logger_data <- function(city, date_start = "2024-04-24",date_end = as.character(
   suppressMessages(load_packages(packages)) #load and install if required the packages
   source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
 
-  if(city == "Bern"){
+  while (!tolower(city)%in%c("bern","thun")) {
+    print("City is not defined correctly, please choose: Bern or Thun")
+    city <- readline(prompt = "Enter your City: ")
+  }
+
+  if(tolower(city) == "bern"){
     meta <- read_csv("https://raw.githubusercontent.com/Urban-Climate-Unibe/Logger_Network/main/data/metadata_gen_2.csv", show_col_types = FALSE)
     print("Get data for Bern")
   }
-  if(city == "Thun"){
+  if(tolower(city == "thun")){
     meta <- read_csv("../data/metadata_Thun.CSV", show_col_types = FALSE)
     print("Get data for Thun")
   }
