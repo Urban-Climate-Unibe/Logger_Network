@@ -17,7 +17,7 @@ Logger_data <- function(city = "Bern", date_start = "2024-03-18",date_end = as.c
 
    #setting correct working-directory
 
-  packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo")#requied packages
+  packages <- c("influxdbclient", "dplyr", "lubridate", "ggplot2", "tidyverse", "zoo", "leaflet")#requied packages
   suppressMessages(source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/load_packages.R"))#source loading function
   suppressMessages(load_packages(packages)) #load and install if required the packages
   source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/interpolate.R")#loading via github for external usage
