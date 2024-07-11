@@ -25,8 +25,8 @@ The function sorts the data into two big tables (temperature and relative humidi
 ```{r currentloggers, indlude = F}
 source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
-data <- Logger_data("Bern", date_start = "2024-05-01",interpolate = 0, write_csv = T)
-data <- Logger_data("Thun", date_start = "2024-06-04", date_end = "2024-06-05", interpolate = 0, write_csv = F)
+data <- Logger_data("Bern", date_start = "2024-06-01",interpolate = 0, write_csv = T)
+data <- Logger_data("Thun", date_start = "2024-07-05", date_end = "2024-07-11", interpolate = 0, write_csv = F)
 
 
 ```
@@ -41,9 +41,9 @@ visdat::vis_miss(
   )
 
 data_cleaned <- data |>
-  dplyr::select(-time) |>
-  dplyr::select(-Log_417)
-visdat::vis_value(data_cleaned)
+  dplyr::select(-time)
+  #dplyr::select(-Log_417)
+visdat::vis_value(data_cleaned, )
 ```
 
 # Map missing data
@@ -73,7 +73,7 @@ leaflet::leaflet(metadata) |>
                             fillColor = ~pal(missing), radius = 6, fillOpacity = 1, 
                             color = "black", weight = 1, opacity = 1, 
                             popup = paste(
-                             "<strong>Measurement type: </strong>", round(metadata$missing))) |> #add link to database or publication) |>
+                             "<strong>Measurement type: </strong>", round(metadata$missing))) |>
   leaflet::addLegend("bottomright", pal = leaflet::colorNumeric("plasma", domain = metadata$missing), values = metadata$missing, title = "Missing data in %")
 ```
 
