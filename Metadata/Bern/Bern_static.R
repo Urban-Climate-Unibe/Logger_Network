@@ -47,13 +47,12 @@ for (file in csv_files) {
 }
 
 
-
-metadata_static <- read_xlsx('../Bern/Meta_Bern.xlsx')
+metadata_static <- read_xlsx('../../data/Bern/Meta_Bern.xlsx')
 
 metadata_static <- metadata_static|>
   select(c(Log_NR, STANDORT, STANDORT_NEU, Code_grafana, Latitude, Longitude, LV_03_E, LV_03_N))
 
-metadata <- read_csv('../Bern/Metadata_19-22.csv')
+metadata <- read_csv('../../data/Bern/Metadata_19-22.csv')
 metadata <- metadata|>
   mutate(Log_NR = Log_Nr,
          STANDORT = NA,
