@@ -90,7 +90,7 @@ Log_NR,STANDORT,STANDORT_NEU,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_E,LV_03_N
 162,Ostermundigen Postgasse,Ostermundigen Poststrasse,b60acb7fff9f,46.95867,7.48222,2603317.7,1200844.3,551.5,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,16.06.2023,1
 21,Gaswerkareal Industrie EWB,Gaswerk,2e15ffacceab,46.93964,7.44166,2600230.5,1198727.9,502.9,Hauptnetz,"Zaun, ",Schild,nein,05.02.2024,,1
 45,Zytglogge,Zytglogge,c454534c7d32,46.94819,7.4474,2600667.7,1199678.8,539.8,Hauptnetz,BERNMOBIL,Fahrplananzeigemasten,ja,16.03.2024,,1
-151b,Ostermundigen BaereTower 2,Ostermundigen BareTower 2,75a4a50dfb2c,46.95563,7.48114,2603235.7,1200506.4,554.8,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,21.03.2024,,1
+151b,Ostermundigen BaereTower 2,Ostermundigen BareTower 2,75a4a50dfb2c,46.95563,7.48114,2603235.7,1200506.4,554.8,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,21.03.2024,01.06.2024,1
 135,Optingenstrasse Süd,Optingenstrasse Süd,cad06aabf023,46.95439,7.44938,2600818,1200367,558.5,Monitoring intern?,TAB?,Verkehrsschild,nein,21.03.2024,,1
 136,Optingenstrasse Nord,Optingenstrasse Nord,a3841c1842b4,46.95672,7.45081,2600927,1200627,555.4,Monitoring intern?,TAB?,Strassenlampe?,Nein,21.03.2024,,1
 134,Vorplatz Baerenplatz,Vorplatz Baerenplatz,5e37031f7f2b,46.94823,7.45974,2601607,1199683,520.6,?,?,?,Nein,16.03.2024,,1
