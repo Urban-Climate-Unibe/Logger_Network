@@ -1,6 +1,104 @@
-library('tidyverse')
-library('readxl')
+#-------------------------------------------------------------------------------
+# Install and load libraries
+#-------------------------------------------------------------------------------
+load_packages <- function(packages, update = FALSE) {
+  # Install packages not yet installed
+  installed_packages <- packages %in% rownames(installed.packages())
+  if (any(!installed_packages)) {
+    install.packages(packages[!installed_packages], repos = "http://cran.us.r-project.org")}
 
+  # Optionally update installed packages
+  if (update) {
+    update.packages(ask = FALSE, checkBuilt = TRUE) }
+  # Load packages without showing messages or warnings
+  suppressWarnings(suppressMessages(invisible(lapply(packages, library, character.only = TRUE))))
+  print("All packages installed and loaded. You are ready to go!")}
+
+# List of packages to load
+packages <- c('readxl', 'tidyverse')
+# Call the function to install, optionally update, and load packages
+load_packages(packages = packages, update = FALSE)  # Set update = TRUE to update packages
+
+#-------------------------------------------------------------------------------
+# Define some variables and vectors
+#-------------------------------------------------------------------------------
+
+logger <- c("LOG_NR", "Log_NR", "Log_Nr", "log_nr", "Nummer_2020", "Nummer_2019")
+location_columns <- c("STANDORT_NEU", "Standort", "name", "Name", "NAME", "STANDORT")
+lat_columns <- c("Lat", "Latitude", "NORD_CHTOPO", "NORD_CH_TOPO", "NORD_CHTOP")
+lon_columns <- c("Lon", "Longitude", "OST_CHTOPO", "OST_CH_TOPO", 'OST_CHTOP')
+
+#-------------------------------------------------------------------------------
+# Read the official metadata between 2018-2021
+#-------------------------------------------------------------------------------
+
+# Read Metadata from 2018-2020 (drop 2018 because it was the first year and many things have changed)
+metadata_until_2020 <- read_xlsx('Metadata/Bern/Standorte_2020_def.xlsx')|>
+  # drop 2018 because it was the first year and many things have changed
+  select(-NUMMER_2018)|>
+  # Make sure each location correspond to the same Log_Nr
+  filter(Nummer_2019 == Nummer_2020)|>
+  # Yes, it does. So we drop 2019
+  select(-Nummer_2019)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  # Check if a colum called Code_grafana exists already. If yes, do nothing else create it and fill it with NA
+  mutate(Code_grafana = ifelse(!("Code_grafana" %in% colnames(.data)), NA, Code_grafana))|>
+  mutate(Log_NR = as.numeric(Log_NR))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
+
+# Read Metadata from 2021
+metadata_2021 <- read_xlsx('Metadata/Bern/Standorte_2021_Hauptnetz.xlsx')|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  # Check if a colum called Code_grafana exists already. If yes, do nothing else create it and fill it with NA
+  mutate(Code_grafana = ifelse(!("Code_grafana" %in% colnames(.data)), NA, Code_grafana))|>
+  mutate(Log_NR = as.numeric(Log_NR))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
+
+#-------------------------------------------------------------------------------
+# Read older metadata
+#-------------------------------------------------------------------------------
+
+# Read metadata between 2019 and 2022 (here, I am not sure if it complete)
+metadata_2019_2022 <- read_csv('data/Metadata_19-22.csv') |>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  # Check if a colum called Code_grafana exists already. If yes, do nothing else create it and fill it with NA
+  mutate(Code_grafana = ifelse(!("Code_grafana" %in% colnames(.data)), NA, Code_grafana))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
+
+# Read metadata for the Bernometer
+metadata_Bernometer <- read_csv('data/metadata_gen_2.csv')|>
+  select(-STANDORT)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
+
+
+# Not all files has the same delimiter --> use function to dedect the delimiter
 determine_delimiter <- function(file) {
   # Read the first line of the file
   first_line <- readLines(file, n = 1)
@@ -12,8 +110,8 @@ determine_delimiter <- function(file) {
   }
 }
 
-# Set the directory containing the CSV files
-folder_path <- '../../data'
+# Do it again but use a different folder_path
+folder_path <- 'data/Metadata_old/'
 # List all CSV files in the folder
 csv_files <- list.files(path = folder_path, pattern = "*.csv", full.names = TRUE)
 
@@ -29,107 +127,122 @@ for (file in csv_files) {
   assign(file_name, df)
 }
 
-# Set the directory containing the CSV files
-folder_path <- '../../data/Metadata_old'
-# List all CSV files in the folder
-csv_files <- list.files(path = folder_path, pattern = "*.csv", full.names = TRUE)
+meta_complete <- meta_complete|>
+  select(-STANDORT)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
-# Loop through each file and read the CSV
-for (file in csv_files) {
-  # Determine the delimiter
-  delimiter <- determine_delimiter(file)
-  # Read the CSV file with the appropriate delimiter
-  df <- read.csv(file, sep = delimiter)
-  # Extract the file name without extension to use as the variable name
-  file_name <- tools::file_path_sans_ext(basename(file))
-  # Create a variable with the name of the file (without extension) and assign the dataframe to it
-  assign(file_name, df)
-}
-
-
-metadata_static <- read_xlsx('../../Metadata/Bern/Meta_Bern.xlsx')
-
-metadata <- read_csv('../../Metadata/Bern/Metadata_19-22.csv')
-metadata <- metadata|>
-  rename(Log_NR = Log_Nr,
-         STANDORT_NEU = Name,
-         Latitude = NORD_CHTOP,
-         Longitude = OST_CHTOPO)|>
-  mutate(STANDORT = NA,
-         Code_grafana = NA,
-         HuM = NA,
-         Art = NA,
-         ZUSTAENDIG = NA,
-         BEFESTIGUNG = NA,
-         Doppel_Messnetz_23 = NA,
-         Start = NA,
-         End = NA,
-         Quali = NA,
-         New = NA)
-
-
-data <- rbind(metadata_static, metadata)|>
+meta_complete_2 <- meta_complete_2|>
+  select(-STANDORT)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
   mutate(Log_NR = as.numeric(Log_NR))|>
-  arrange(Log_NR) |>
-  group_by(Log_NR)|>
-  filter(n() == 1 | !is.na(Code_grafana)) |>
-  ungroup()
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
+metadata_network_2023 <- metadata_network_2023|>
+  select(-STANDORT)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
-compare_data <- function(data1, data2) {
-  # Make sure the Log numbers are numeric
-  data1 <- data1|>
-    dplyr::mutate(Log_NR = as.numeric(Log_NR))
+metadata_network_2024 <- metadata_network_2024|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
-  data2 <- data2|>
-    dplyr::mutate(Log_NR = as.numeric(Log_NR))
+metadata_network_2024_2 <- metadata_network_2024_2|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
-  # Perform inner join based on Log_NR --> Add suffixes so that they are distinguishable
-  merged_data <- inner_join(data1, data2, by = "Log_NR", suffix = c("_old", "_new"))
+metadata_network_old <- metadata_network_old|>
+  select(-STANDORT)|>
+  # rename some columns
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  # Select columns
+  select(c(Log_NR, Location, Latitude, Longitude, Code_grafana))
 
-  # Filter for rows where Code_grafana matches
-  matching_codes <- merged_data |>
-    filter(Code_grafana_old == Code_grafana_new)
+#-------------------------------------------------------------------------------
+# Combine the data sets
+#-------------------------------------------------------------------------------
 
-  filter_vec_1 <- matching_codes|>
-    select(Log_NR)|>
-    pull()
+vec <- list(metadata_until_2020, metadata_2021, metadata_2019_2022, meta_complete,
+         meta_complete_2, metadata_Bernometer, metadata_network_2023, metadata_network_2024,
+         metadata_network_2024_2, metadata_network_old)
 
-  # Filter for rows where Code_grafana not matches
-  no_matching_codes <- merged_data |>
-    filter(Code_grafana_old != Code_grafana_new)
+df <- bind_rows(vec)|>
+  mutate(Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))|>
+  arrange(Log_NR)|>
+  #drop identical rows
+  distinct()
 
-  filter_vec_2 <- no_matching_codes|>
-    select(Log_NR)|>
-    pull()
+#-------------------------------------------------------------------------------
+# Read the newest metadata sheet (here we know it is true)
+#-------------------------------------------------------------------------------
 
-  difference <- data2|>
-    filter(Log_NR != c(filter_vec_1 | filter_vec_2))
+metadata_static <- read_xlsx('Metadata/Bern/Meta_Bern.xlsx')|>
+  select(-STANDORT)|>
+  rename(Log_NR = any_of(logger),
+         Latitude = any_of(lat_columns),
+         Longitude = any_of(lon_columns),
+         Location = any_of(location_columns))|>
+  mutate(Log_NR = as.numeric(Log_NR),
+         Latitude = round(Latitude,5),
+         Longitude = round(Longitude,5))
 
-  # Join both data sets but use only missing rows
-  df <- anti_join(data2, difference, by = "Log_NR")
+missing_location <- anti_join(df, metadata_static, by = "Log_NR")|>
+  filter(!is.na(Location))|>
+  # we filter that because there is a latitude 46xxxx instead of 46.xxxx but we do not lose important information
+  filter(Latitude < 100)
 
-  lst <- list(matching_codes, no_matching_codes, df)
-  return(lst)
-}
+# combine the files
+metadata_final <- bind_rows(missing_location, metadata_static)|>
+  arrange(Log_NR)|>
+  select(-New)
 
-df_1 <- compare_data(data, Logger_neu_grafana)
-
-df_2 <- compare_data(data, meta_complete)
-
-df_3 <- compare_data(data, meta_complete_2)
-
-df_4 <- compare_data(data, metadata_gen_2)
-
-df_5 <- compare_data(data, metadata_network_2023)
-
-df_6 <- compare_data(data, metadata_network_2024)
-
-df_7 <- compare_data(data, metadata_network_2024_2)
-
-#df_8 <- compare_data(data, metadata_network_old)
-
-
+#-------------------------------------------------------------------------------
+# substitude ä, ö, ü with a, o, u
+#-------------------------------------------------------------------------------
 
 replace_umlauts <- function(df) {
   df_updated <- df %>%
@@ -137,22 +250,23 @@ replace_umlauts <- function(df) {
   return(df_updated)
 }
 
-# Applying the function to your data frame
-data_updated <- replace_umlauts(data)
+metadata_final <- replace_umlauts(metadata_final)
 
-data_updated|>
+#-------------------------------------------------------------------------------
+# Write and safe csv file (additionally, there is kind of a version control system)
+#-------------------------------------------------------------------------------
 
 
-guardian <- file.exists('../Bern/metadata_static.csv')
+guardian <- file.exists('../Metadata/Bern/')
 
 # We need a version control system. So if we generate a new file, then we
 # append the local timestamp to the file name
 if (guardian == FALSE) {
   # Generate a new file with the current system time in the name
   timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-  new_file_name <- paste0('metadata_static_', timestamp, '.csv')
+  new_file_name <- paste0('Metadata/Bern/metadata_static_', timestamp, '.csv')
   print(paste('Generating a new file:', new_file_name))
-  write_csv2(data_updated, new_file_name)
+  write_csv(metadata_final, new_file_name)
 } else {
   print('There is already a file called metadata_static.csv')
 }

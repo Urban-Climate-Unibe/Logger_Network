@@ -1,118 +1,130 @@
-Log_NR;STANDORT;STANDORT_NEU;Code_grafana;Latitude;Longitude;LV_03_E;LV_03_N;HuM;Art;ZUSTAENDIG;BEFESTIGUNG;Doppel_Messnetz_23;Start;End;Quali;New
-1;VonRoll PH;VonRoll;02f54063d5c4;46.95291;7.42252;2598773.7;1200203.5;553.9;Hauptnetz;Uni Bern (VonRoll) & EWB;Lichtmasten;ja;09.05.2023;NA;1;NA
-2;Europaplatz;Europaplatz;ea2d7117e366;46.94333;7.40633;2597540.6;1199138.8;555.5;Hauptnetz;BERNMOBIL;Masten;nein;10.05.2023;NA;1;NA
-3;NA;Rathausgasse II: ca. Hohe Taube (Bar);NA;46.94851;7.44925;2600808.309;1199714.029;NA;NA;NA;NA;NA;NA;NA;NA;NA
-4;NA;Uettligen Umland;NA;46.98041;7.38733;2596096.727;1203261.664;NA;NA;NA;NA;NA;NA;NA;NA;NA
-5;NA;Sportplatz/Familiengarten vor Egelsee;NA;46.94564;7.46666;2602133.836;1199395.28;NA;NA;NA;NA;NA;NA;NA;NA;NA
-6;NA;Bumpliz Froschmattstrasse;NA;46.9402;7.38371;2595818.116;1198791.672;NA;NA;NA;NA;NA;NA;NA;NA;NA
-7;Kreuzung Brunmatt- Schwarztorstrasse;Brunnhof;23c9b05d9c07;46.94479;7.42713;2599124.4;1199300.1;528.6;Hauptnetz;TAB;Ampel;nein;10.05.2023;NA;1;NA
-8;Wankdorf ESP;Wankdorf ESP;3b2fc2434bc8;46.968;7.46247;2601814.2;1201881.4;550.5;Hauptnetz;ewb;Strassenlampe;nein;06.06.2023;NA;1;NA
-9;Bremgartenfriedhof;Bremgartenfriedhof;3ff9a6a3e7cf;46.9503;7.42015;2598592.61;1199912.8;552.4;Hauptnetz;Stadtgrun;Laterne;nein;12.05.2023;NA;1;NA
-10;Langgasse, Neufeldstrasse 135;Hintere Langgasse;835e566128f7;46.95789;7.43541;2599754.9;1200756.72;558.5;Hauptnetz;ewb;Strassenlampe;nein;24.05.2023;NA;1;NA
-11;NA;Viererfeld Veloweg;NA;46.96249;7.43982;2600090.402;1201268.152;NA;NA;NA;NA;NA;NA;NA;NA;NA
-12;NA;Egelsee Sud I: Gantrischstrasse 52;NA;46.94701;7.47194;2602535.759;1199547.736;NA;NA;NA;NA;NA;NA;NA;NA;NA
-13;Egelsee;Egelsee;f1c322fed147;46.94469;7.46442;2601963;1199289.4;549.1;Hauptnetz;??? (egal);Lampe;ja;10.05.2023;NA;1;NA
-14;Helvetiaplatz;Helvetiaplatz;d84fa928944b;46.94381;7.44885;2600777.8;1199191.1;530.8;Hauptnetz;TAB;Verkehrsschild;ja;01.06.2023;NA;1;NA
-15;NA;Waisenhausplatz I (Ostseite): Vor Rest. Il Grissino;NA;46.94973;7.44418;2600422.324;1199849.622;NA;NA;NA;NA;NA;NA;NA;NA;NA
-16;Bubenbergplatz;Bubenbergplatz;1564ef396f0f;46.94728;7.43843;2599984.7;1199577.3;542.5;Hauptnetz;BERNMOBIL;Masten;nein;16.06.2023;NA;1;NA
-17;Rosengarten;Rosengarten;e31e30079a9c;46.95188;7.4602;2601641.8;1200088.5;568.4;Hauptnetz;Stadtgrun;Laterne;nein;12.05.2023;NA;1;NA
-18;NA;Aegertenstrasse 53;NA;46.93861;7.44738;2600666.056;1198613.424;NA;NA;NA;NA;NA;NA;NA;NA;NA
-19;Galgenfeld Neubausiedlung;Galgenfeld Neubausiedlung;79ecf19c1a47;46.95063;7.46987;2602378.1;1199950.3;579.2;Hauptnetz;ewb;Strassenlampe;nein;10.05.2023;NA;1;NA
-20;NA;Umland Koniz;NA;46.903399;7.394688;2596651.653;1194699.961;NA;NA;NA;NA;NA;NA;NA;NA;NA
-21;Gaswerkareal Industrie EWB;Gaswerk;2e15ffacceab;46.93964;7.44166;2600230.5;1198727.9;502.9;Hauptnetz;Zaun,;Schild;nein;05.02.2024;NA;1;NA
-22;Matte Muhleplatz;Matte Muhleplatz;b6fe2ab80321;46.94701;7.45583;2601309.3;1199546.8;499.5;Hauptnetz;TAB;Verkehrsschild;nein;24.05.2023;NA;1;NA
-23;Ostermundigen, Ahornstr 16;Ostermundigen Ahornstrasse;84251a508492;46.95566;7.49879;2604579.1;1200510.9;574.6;Hauptnetz;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-25;Koniz Neubausiedlung;Liebefeld;e15a04fd7037;46.92781;7.42031;2598604.9;1197412.9;567.2;Hauptnetz;Gemeinde Koniz;Lampe;ja;09.05.2023;NA;1;NA
-26;Inselspital;Inselspital;a3841c1842b4;46.94719;7.42571;2599016.1;1199567.3;543.9;Hauptnetz;BERNMOBIL;Strassenlampe;ja;27.03.2024;NA;1;NA
-28;Parkli bei Eigerplatz;Parkli bei Eigerplatz;86e2042d6857;46.94195;7.43094;2599414.5;1198984.7;524.5;Hauptnetz;ewb;Pfosten;nein;10.05.2023;NA;1;NA
-29;NA;Paul Klee, Senke Familienspaziergang;NA;46.94861;7.47124;2602482.395;1199725.587;NA;NA;NA;NA;NA;NA;NA;NA;NA
-30;Galgenfeld Industrie;Galgenfeld Industrie;634f68b0c0c6;46.95553;7.47194;2602535.5;1200495.3;563.6;Hauptnetz;ewb;Strassenlampe;nein;10.05.2023;NA;1;NA
-31;Koniz Aussenquartier;Weiermatt;6e0aef9d54be;46.92041;7.40995;2597815.3;1196590.8;577.2;Hauptnetz;Gemeinde Koniz;Strassenlampe;nein;08.05.2023;NA;1;NA
-32;Bremgartenwald;Bremgartenwald;2343056bd60f;46.95739;7.42128;2598679.5;1200701.4;552.3;Hauptnetz;Burgergemeinde;Baum;ja;16.05.2023;NA;1;NA
-33;Dahlholzli-Wald;Dahlholzliwald;44d4eaca941f;46.93798;7.45656;2601365.1;1198543.6;535.2;Hauptnetz;Burgergemeinde;Baum (Fichte);ja;NA;NA;1;NA
-34;Kasernenareal;Kasernenareal;d0e2d4b4c052;46.95697;7.45801;2601475.3;1200654.6;559.4;Hauptnetz;Kasernenareal;Strassenlampe;ja;08.05.2023;NA;1;NA
-35;NA;Egelsee Sud II: Burglenstrasse 28;NA;46.94518;7.46887;2602302.111;1199344.202;NA;NA;NA;NA;NA;NA;NA;NA;NA
-36;Viktoriarain;Wyttenbachstrasse;017f7c0231ae;46.95518;7.44773;2600682.8;1200455.9;542.9;Hauptnetz;TAB;Verkehrsschild 30, auf ca 2m75;nein;08.05.2023;NA;1;NA
-37;Lorraine, Steckweg 15;Lorraine;8ba39c865b00;46.95898;7.44513;2660494.4;120887.6;538.1;Hauptnetz;ewb;Strassenlampe;ja;08.05.2023;NA;1;NA
-38;Spiegel;Spiegel;20b8a59ebf60;46.92607;7.43739;2599905.3;1197218.9;619.8;Hauptnetz;Gemeinde Koniz;Strassenlampe;nein;09.05.2023;NA;1;NA
-39;Weyermannshaus Industrie;Weyermannshaus Industrie;444fdf760afa;46.949;7.40134;2597160.3;1199757.8;545.9;Hauptnetz;ewb;Strassenlampe;ja;12.05.2023;NA;1;NA
-40;NA;Rathausgasse I: St. Peter & Paul Kirche;NA;46.94858;7.45193;2601012.336;1199721.84;NA;NA;NA;NA;NA;NA;NA;NA;NA
-41;Monbijou-Park;Monbijou-Park;8032b80c5ec1;46.94187;7.43462;2599694.5;1198975.9;521.4;Hauptnetz;Stadtgrun;Kandelaber FaLLT 2022 AUS;nein;10.05.2023;NA;1;NA
-42;Gerechtigkeitsgasse 55;Gerechtigkeitsgasse;3299bbe93670;46.9481;7.45351;2601132.3;1199668.8;532.1;Hauptnetz;TAB;Verkehrsschild;nein;12.05.2023;NA;1;NA
-45;Zytglogge;Zytglogge;c454534c7d32;46.94819;7.4474;2600667.7;1199678.8;539.8;Hauptnetz;BERNMOBIL;Fahrplananzeigemasten;ja;16.03.2024;NA;1;NA
-46;NA;Autobahnausfahrt Wankdorf;NA;46.96717;7.46968;2602362.841;1201788.872;NA;NA;NA;NA;NA;NA;NA;NA;NA
-47;NA;Waisenhausplatz III (Mitte): Neben Brunnen;NA;46.94984;7.44418;2600422.324;1199861.851;NA;NA;NA;NA;NA;NA;NA;NA;NA
-48;Viererfeld;Viererfeld 1 (Sportplatz);75a4a50dfb2c;46.96512;7.43823;2599969.6;1201560.1;573.2;Hauptnetz;Sportplatz Viererfeld;Scheinwerfermasten;nein;16.05.2023;NA;1;NA
-50;NA;Kreuzung Familienspaziergang / Laubeggstrasse;NA;46.94644;7.46833;2602260.947;1199484.262;NA;NA;NA;NA;NA;NA;NA;NA;NA
-51;Bumpliz Stockacker;Bumpliz Stockacker;db1aaeaf755a;46.94302;7.39587;2596744.4;1199104.6;556.6;Hauptnetz;ewb;Laterne;ja;12.05.2023;NA;1;NA
-52;Umland Bumpliz;Umland Bumpliz;1422c91c94ef;46.93354;7.36084;2594500.2;1198052.9;573.8;Hauptnetz;ewb;Stromleitungsmasten EWB40;ja;08.05.2023;NA;1;NA
-53;Breitenrain, Waffenweg;Waffenweg;459a084688df;46.96173;7.45192;2601011.1;1201183.8;554.9;Hauptnetz;TAB;Verkehrsschild 2m85;nein;08.05.2023;NA;1;NA
-54;NA;Waisenhausplatz IV (Pocketpark): vor Starbucks;NA;46.94879;7.44376;2600390.356;1199745.12;NA;NA;NA;NA;NA;NA;NA;NA;NA
-55;Bollwerk (Strasseninsel);Bollwerk;36c36d0cf6fd;46.95151;7.44082;2600166.32;1200047.33;534.5;Hauptnetz;TAB;Ampel;nein;08.05.2023;NA;1;NA
-57;Eigerplatz;Eigerplatz;ac6956757b85;46.94067;7.43141;2599450.3;1198842.4;526.1;Hauptnetz;BERNMOBIL;Masten;ja;10.05.2023;NA;1;NA
-58;Murifeld;Murifeld;e96f9159cdca;46.93919;7.47992;2603143.9;1198678.2;553;Hauptnetz;ewb;Lampe;ja;10.05.2023;NA;1;NA
-59;Schlossmatte Familiengarten;Schlossmatte Familiengarten;0e93f9aa1539;46.94211;7.41688;2598344.1;1199002.6;548.4;Hauptnetz;Stadtgrun;Fahnenmasten;ja;12.05.2023;NA;1;NA
-60;NA;Roschistrasse;NA;46.93508;7.43887;2600018.07;1198220.963;NA;NA;NA;NA;NA;NA;NA;NA;NA
-61;Westside Center;Westside Center;1b0dc4db66c0;46.94555;7.37478;2595139;1199387.4;554.2;Hauptnetz;ewb;Parklaterne;nein;12.05.2023;NA;1;NA
-62;Felsenhaldenweg;Felsenhaldenweg;6cf62e6cfad9;46.97417;7.44122;2600197.2;1202567;492.5;Hauptnetz;ewb;Strassenlampe;nein;09.05.2023;NA;1;NA
-63;NA;Wylergut, Jaunweg 11;NA;46.96766;7.44922;2600805.764;1201842.951;NA;NA;NA;NA;NA;NA;NA;NA;NA
-65;Umland Bolligen;Umland Bolligen;4eb78fa39636;46.96681;7.50376;2604956.8;1201749.9;557.1;Hauptnetz;BKW;Stromleitungsmasten BKW FMB94;nein;11.05.2023;NA;1;NA
-68;NA;Gleisfeld Welle;NA;46.94832;7.43365;2599620.686;1199692.878;NA;NA;NA;NA;NA;NA;NA;NA;NA
-69;Eisenbahnquartier;Eisenbahnquartier;15c44cc1729a;46.93716;7.42317;2598822.7;1198452.8;561.1;Hauptnetz;ewb;Strassenlampe;nein;09.05.2023;NA;1;NA
-70;Bundesplatz;Bundesplatz;44dd6ed61b66;46.94692;7.44353;2600373.1;1199537.1;542.6;Hauptnetz;TAB;Verkehrsschild;nein;12.05.2023;NA;1;NA
-71;Hirschengraben;Hirschengraben;83b8067d27a2;46.94658;7.43786;2599941.2;1199499.8;540.3;Hauptnetz;ewb;Laternenpfosten;ja;12.05.2023;NA;1;NA
-73;Obstberg, Wattenwylweg 32;Obstberg;64520be86594;46.94714;7.46407;2601936.8;1199561.8;561.8;Hauptnetz;ewb;Strassenlampe;nein;10.05.2023;NA;1;NA
-74;NA;Waisenhausplatz II (Westseite): vor Rest. Luce;NA;46.94917;7.44437;2600436.792;1199787.368;NA;NA;NA;NA;NA;NA;NA;NA;NA
-76;Wabern, Viktoriastrasse 9;Wabern Viktoriastrasse;cbb89f9d130c;46.93122;7.45326;2601114;1197791.9;533.6;Hauptnetz;Gemeinde Koniz;Strassenlampe (Gmd Koniz 119);ja;24.05.2023;NA;1;NA
-77;NA;Viererfeld Wald;NA;46.96406;7.43582;2599785.972;1201442.697;NA;NA;NA;NA;NA;NA;NA;NA;NA
-78;Dalmazibrucke;Dalmazibrucke;e3594371a27b;46.94445;7.44571;2600538.5;1199262.1;500.9;Hauptnetz;ewb;Strassenlampe;nein;24.05.2023;NA;1;NA
-79;Umland Belp;Umland Belp;e1ccbf0d3c96;46.89942;7.51184;2605578;1194258.9;513.1;Hauptnetz;Energie Belp;Stromleitungsmasten EVB52;nein;09.05.2023;NA;1;NA
-80;Elfenau Kreuzung Hofmeister- Matterstrasse (Wegli);Elfenau;db9e92f34b5f;46.93558;7.4695;2602350.8;1198276.9;544.8;Hauptnetz;ewb;Strassenlampe;nein;10.05.2023;NA;1;NA
-82;Thunplatz;Thunplatz;7c98b95fbc73;46.94059;7.45824;2601493.1;1198834.2;551.8;Hauptnetz;BERNMOBIL;Tramampel;nein;10.05.2023;NA;1;NA
-83;Stadtlabor;Stadtlabor;d6e2769def35;46.96311;7.46257;2601821.5;1201337.7;554.5;Hauptnetz;AFU;Holzpflock;ja;08.05.2023;NA;1;NA
-85;NA;Ensingerstrasse 28;NA;46.94244;7.46132;2601727.381;1199039.407;NA;NA;NA;NA;NA;NA;NA;NA;NA
-86;Ostermundigen, Lotschenstr 13;Ostermundigen Lotschenstrasse;0cebd74f5020;46.95309;7.48719;2603696;1200224.7;551.5;Hauptnetz;Gemeinde Ostermundigen;Strassenlampe;ja;11.05.2023;NA;1;NA
-87;Engehalde Stauwehr;Engehalde Stauwehr;b60acb7fff9f;46.96546;7.44503;2600486.5;1201598.6;494.5;Hauptnetz;ewb;Wehr, am ubergang;nein;08.05.2023;NA;1;NA
-89;Gurten Kulm;Gurten Kulm;7462a9be23a4;46.91833;7.43971;2600082;1196359.1;848;Hauptnetz;ewb;Strassenlampe;nein;27.07.2023;NA;1;NA
-98;Zollikofen Referenz 2m;Zollikofen 2m;20d1b9040ad9;46.99079;7.46407;2601935.4;1204414.8;552.9;Hauptnetz;MeteoSchweiz;Metallstange;ja;09.05.2023;NA;1;NA
-99;Zollikofen Referenz 3m;Zollikofen 3m;135a449d34a1;46.99079;7.46407;2601935.4;1204414.8;552.9;Hauptnetz;MeteoSchweiz;Metallstange;ja;09.05.2023;NA;1;NA
-101;Steinholzliwald;Steinholzliwald;213cff7114f2;46.93514;7.42805;2599194.5;1198227.6;573.7;Hauptnetz;Burgergemeinde;Baum;nein;09.05.2023;NA;1;NA
-102;Vorderes LG-Quartier, Falkenweg 5;Vordere Langgasse;2b71f57ca11c;46.95171;7.43714;2599886.1;1200069.3;561.6;Hauptnetz;ewb;Strassenlampe;ja;08.05.2023;NA;1;NA
-110;NA;Rosalia-Wenger Platz;NA;46.96823;7.4639;2601922.928;1201906.561;NA;NA;NA;NA;NA;NA;NA;NA;NA
-111;Tellstrasse;Tellstrasse;68d17acb4c7c;46.96017;7.46146;2601737.6;1201010.4;556.1;Monitoring intern;BERNMOBIL;Masten;nein;10.05.2023;NA;1;NA
-112;Ausserholligen 1, Post;Ausserholligen Post;f9c2d2bbe84f;46.94755;7.40188;2597202.2;1199607.9;547.9;Monitoring intern;Post;Strassenlampe;nein;12.05.2023;NA;1;NA
-113;Ausserholligen 2, ewb;Ausserholligen ewb;4f5e9a2b9675;46.94542;7.40642;2597547.3;1199371.3;547.6;Monitoring intern;ewb;Strassenlampe;nein;12.05.2023;NA;1;NA
-114;NA;Bachmatteli 1, Polizei;NA;46.94019;7.39051;2596335.877;1198790.214;NA;NA;NA;NA;NA;NA;NA;NA;NA
-115;NA;Bachmatteli 2;NA;46.93996;7.39007;2596302.358;1198764.665;NA;NA;NA;NA;NA;NA;NA;NA;NA
-116;Ansermetplatz;Ansermetplatz;061bc5815e5a;46.94787;7.37708;2595313.7;1199645;545.2;Hauptnetz;ewb;Strassenlampe;nein;12.05.2023;NA;1;NA
-117;Koniztal;Koniztal;a474b0e06285;46.90961;7.44248;2600293.4;1195389.8;631;Hauptnetz;Bauer;Schild;nein;09.05.2023;NA;1;NA
-118;NA;Helvetiaplatz Monitoring;NA;46.94359;7.44936;2600816.752;1199167.071;NA;NA;NA;NA;NA;NA;NA;NA;NA
-119;NA;Rosalia-Wenger Platz Monitoring;NA;46.96762;7.46401;2601931.321;1201838.749;NA;NA;NA;NA;NA;NA;NA;NA;NA
-122;NA;Waisenhausplatz II, vor Rest. Luce;NA;46.94917;7.44437;2600436.792;1199787.368;NA;NA;NA;NA;NA;NA;NA;NA;NA
-124;Barenplatz;Barenplatz;995c5da790ca;46.94814;7.44366;2600382.9;1199672.9;542.1;Monitoring intern;TAB;Maritstange;nein;24.05.2023;NA;1;NA
-125;NA;Barenplatz, Schachfeld;NA;46.94734;7.44366;2600382.752;1199583.922;NA;NA;NA;NA;NA;NA;NA;NA;NA
-126;Optingenstrasse;Optingenstrasse;5d922b8eddee;46.95597;7.45045;2600899.9;1200543.3;557.3;Monitoring intern;TAB;Verkehrsschild;nein;08.05.2023;NA;1;NA
-127;Breitenrainplatz;Breitenrainplatz;58c0f9c55c8d;46.95838;7.45415;2601181.1;1200811.8;559.8;Monitoring intern;ewb;Strassenlampe;nein;08.05.2023;NA;1;NA
-128;Schosshaldefriedhof;Schosshaldefriedhof;NA;46.95341;7.47159;2602508.69;1200259.13;568.5;Monitoring extern;NA;NA;NA;NA;NA;NA;NA
-129;Laupenstrasse (ZBB);Laupenstrasse;c1c63230dd69;46.94734;7.43639;2599829;1199583.8;540.6;Monitoring intern;BERNMOBIL;Fahrplananzeigemasten;nein;12.05.2023;NA;1;NA
-131;NA;Marzili Beton;NA;46.94238;7.44103;2600182.536;1199032.509;NA;NA;NA;NA;NA;NA;NA;NA;NA
-132;NA;Marzili Entsiegelung;NA;46.94222;7.4406;2600149.797;1199014.721;NA;NA;NA;NA;NA;NA;NA;NA;NA
-133;NA;Marzili Rasen;NA;46.94216;7.4408;2600165.025;1199008.051;NA;NA;NA;NA;NA;NA;NA;NA;NA
-134;Vorplatz Baerenplatz;Vorplatz Baerenpark;5e37031f7f2b;46.94823;7.45974;2601607;1199683;520.6;NA;NA;NA;Nein;16.03.2024;NA;1;NA
-135;Optingenstrasse Sud;Optingenstrasse Sud;cad06aabf023;46.95439;7.44938;2600818;1200367;558.5;Monitoring intern?;TAB;Verkehrsschild;nein;21.03.2024;NA;1;NA
-136;Optingenstrasse Nord;Optingenstrasse Nord;f055cf494274;46.95672;7.45081;2600927;1200627;555.4;Monitoring intern?;TAB;Strassenlampe;Nein;21.03.2024;NA;1;NA
-141;Viererfeld 2 (Schacht);Viererfeld 2 (Schacht);2512f6b6f8a7;46.96271;7.43688;2599866.3;1201293.1;571.1;Monitoring extern;eawag;Stange;nein;08.05.2023;NA;1;NA
-142;Viererfeld 3 (Strasse Sud);Viererfeld 3 (Strasse Sud);34203a10c11a;46.96286;7.44009;2600111.1;1201309.4;564.2;Monitoring extern;ewb;Kandelaber;nein;11.05.2023;NA;1;NA
-143;Viererfeld 4 (Strasse Nord);Viererfeld 4 (Strasse Nord);cb1330fd71b9;46.96523;7.44165;2600229.8;1201572.8;567.5;Monitoring extern;ewb;Kandelaber;nein;16.05.2023;NA;1;NA
-144;Viererfeld 5 (Mittelfeld);Viererfeld 5 (Mittelfeld);a8386067f2e8;46.96178;7.43481;2599709.3;1201189.5;573.6;Monitoring extern;Urban Climate Bern;Eigene Stange;nein;08.05.2023;NA;1;NA
-151;NA;Ostermundigen BareTower;NA;46.95563;7.48114;2603235.663;1200506.358;NA;NA;NA;NA;NA;NA;NA;NA;NA
-152;Ostermundigen Moosweg;Ostermundigen Moosweg;71912f0c8afa;46.95813;7.48807;2603763;1200784.8;552;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-153;Ostermundigen Wegmuhlegassli;Ostermundigen Wegmuhlegassli;57542e9f73a9;46.95806;7.49371;2604192.2;1200777.3;548.3;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-154;Ostermundigen Oberfeld;Ostermundigen Oberfeld;22164103ffc8;46.9581;7.49792;2604512.4;1200781.4;567.4;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-155;Ostermundigen Milchstrasse;Ostermundigen Milchstrasse;5d30f69ffcbf;46.96241;7.48201;2603301.6;1201260.5;550.5;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-156;Ostermundigen Tiefenmosli;Ostermundigen Tiefenmosli;d89267a081f7;46.94801;7.48411;2603462.3;1199659.8;552.2;Monitoring Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-161;Ostermundigen Schermenweg;Ostermundigen Schermenweg;d3960c86f92a;46.95821;7.48052;2603188.1;1200793.3;551.8;Monitoring Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;11.05.2023;NA;1;NA
-162;Ostermundigen Postgasse;Ostermundigen Poststrasse;db897f1683fc;46.95867;7.48222;2603317.7;1200844.3;551.5;Hauptnetz Ostermundigen;Gemeinde Ostermundigen;Strassenlampe;nein;16.06.2023;NA;1;NA
-171;Postgasse;Postgasse Nord;7b36c77aba0d;46.94886;7.4542;2601185.138;1199752.986;531;Monitoring intern;UC;Verkehrsschild;nein;21.03.2024;NA;1;NA
-173;Postgasse west;Postgasse West;a6d098900d78;46.94871;7.45341;2601124.999;1199736.299;537;Monitoring intern;UC;Verkehrsschild;nein;21.03.2024;NA;1;NA
-174;Postgasse Sud;Postgasse Sued;f31e2d9d37ba;46.94886;7.45466;2601220.158;1199752.992;530;Monitoring intern;UC;Verkehrsschild;nein;21.03.2024;NA;1;NA
+Log_NR,Location,Latitude,Longitude,Code_grafana,LV_03_E,LV_03_N,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Doppel_Messnetz_23,Start,End,Quali
+1,VonRoll,46.95291,7.42252,02f54063d5c4,2598773.7,1200203.5,553.9,Hauptnetz,Uni Bern (VonRoll) & EWB,Lichtmasten,ja,09.05.2023,NA,1
+2,Europaplatz,46.94333,7.40633,ea2d7117e366,2597540.6,1199138.8,555.5,Hauptnetz,BERNMOBIL,Masten,nein,10.05.2023,NA,1
+3,Rathausgasse II: ca. Hohe Taube (Bar),46.94851,7.44925,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4,Uettligen Umland,46.98041,7.38733,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5,Sportplatz/Familiengarten vor Egelsee,46.94564,7.46666,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+6,Bumpliz Froschmattstrasse,46.9402,7.38371,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7,Brunnhof,46.94479,7.42713,23c9b05d9c07,2599124.4,1199300.1,528.6,Hauptnetz,TAB,Ampel,nein,10.05.2023,NA,1
+8,Wankdorf ESP,46.968,7.46247,3b2fc2434bc8,2601814.2,1201881.4,550.5,Hauptnetz,ewb,Strassenlampe,nein,06.06.2023,NA,1
+9,Bremgartenfriedhof,46.9503,7.42015,3ff9a6a3e7cf,2598592.61,1199912.8,552.4,Hauptnetz,Stadtgrun,Laterne,nein,12.05.2023,NA,1
+10,Hintere Langgasse,46.95789,7.43541,835e566128f7,2599754.9,1200756.72,558.5,Hauptnetz,ewb,Strassenlampe,nein,24.05.2023,NA,1
+11,Viererfeld Veloweg,46.96249,7.43982,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+12,Egelsee Sud I: Gantrischstrasse 52,46.94701,7.47194,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+13,Egelsee,46.94469,7.46442,f1c322fed147,2601963,1199289.4,549.1,Hauptnetz,??? (egal),Lampe,ja,10.05.2023,NA,1
+14,Helvetiaplatz,46.94381,7.44885,d84fa928944b,2600777.8,1199191.1,530.8,Hauptnetz,TAB,Verkehrsschild,ja,01.06.2023,NA,1
+15,Waisenhausplatz I (Ostseite): Vor Rest. Il Grissino,46.94973,7.44418,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+16,Bubenbergplatz,46.94728,7.43843,1564ef396f0f,2599984.7,1199577.3,542.5,Hauptnetz,BERNMOBIL,Masten,nein,16.06.2023,NA,1
+17,Rosengarten,46.95188,7.4602,e31e30079a9c,2601641.8,1200088.5,568.4,Hauptnetz,Stadtgrun,Laterne,nein,12.05.2023,NA,1
+18,Aegertenstrasse 53,46.93861,7.44738,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+19,Galgenfeld Neubausiedlung,46.95063,7.46987,79ecf19c1a47,2602378.1,1199950.3,579.2,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,NA,1
+20,Umland Koniz,46.9034,7.39469,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21,Gaswerk,46.93964,7.44166,2e15ffacceab,2600230.5,1198727.9,502.9,Hauptnetz,"Zaun,",Schild,nein,05.02.2024,NA,1
+22,Matte Muhleplatz,46.94701,7.45583,b6fe2ab80321,2601309.3,1199546.8,499.5,Hauptnetz,TAB,Verkehrsschild,nein,24.05.2023,NA,1
+23,Ostermundigen Ahornstrasse,46.95566,7.49879,84251a508492,2604579.1,1200510.9,574.6,Hauptnetz,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+25,Liebefeld,46.92781,7.42031,e15a04fd7037,2598604.9,1197412.9,567.2,Hauptnetz,Gemeinde Koniz,Lampe,ja,09.05.2023,NA,1
+26,Inselspital,46.94719,7.42571,a3841c1842b4,2599016.1,1199567.3,543.9,Hauptnetz,BERNMOBIL,Strassenlampe,ja,27.03.2024,NA,1
+28,Parkli bei Eigerplatz,46.94195,7.43094,86e2042d6857,2599414.5,1198984.7,524.5,Hauptnetz,ewb,Pfosten,nein,10.05.2023,NA,1
+29,"Paul Klee, Senke Familienspaziergang",46.94861,7.47124,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+30,Galgenfeld Industrie,46.95553,7.47194,634f68b0c0c6,2602535.5,1200495.3,563.6,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,NA,1
+31,Weiermatt,46.92041,7.40995,6e0aef9d54be,2597815.3,1196590.8,577.2,Hauptnetz,Gemeinde Koniz,Strassenlampe,nein,08.05.2023,NA,1
+32,Bremgartenwald,46.95739,7.42128,2343056bd60f,2598679.5,1200701.4,552.3,Hauptnetz,Burgergemeinde,Baum,ja,16.05.2023,NA,1
+33,Dahlholzliwald,46.93798,7.45656,44d4eaca941f,2601365.1,1198543.6,535.2,Hauptnetz,Burgergemeinde,Baum (Fichte),ja,NA,NA,1
+34,Kasernenareal,46.95697,7.45801,d0e2d4b4c052,2601475.3,1200654.6,559.4,Hauptnetz,Kasernenareal,Strassenlampe,ja,08.05.2023,NA,1
+35,Egelsee Sud II: Burglenstrasse 28,46.94518,7.46887,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+36,Wyttenbachstrasse,46.95518,7.44773,017f7c0231ae,2600682.8,1200455.9,542.9,Hauptnetz,TAB,"Verkehrsschild 30, auf ca 2m75",nein,08.05.2023,NA,1
+37,Lorraine,46.95898,7.44513,8ba39c865b00,2660494.4,120887.6,538.1,Hauptnetz,ewb,Strassenlampe,ja,08.05.2023,NA,1
+38,Spiegel,46.92607,7.43739,20b8a59ebf60,2599905.3,1197218.9,619.8,Hauptnetz,Gemeinde Koniz,Strassenlampe,nein,09.05.2023,NA,1
+39,Weyermannshaus Industrie,46.949,7.40134,444fdf760afa,2597160.3,1199757.8,545.9,Hauptnetz,ewb,Strassenlampe,ja,12.05.2023,NA,1
+40,Rathausgasse I: St. Peter & Paul Kirche,46.94858,7.45193,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+41,Monbijou-Park,46.94187,7.43462,8032b80c5ec1,2599694.5,1198975.9,521.4,Hauptnetz,Stadtgrun,Kandelaber FaLLT 2022 AUS,nein,10.05.2023,NA,1
+42,Gerechtigkeitsgasse,46.9481,7.45351,3299bbe93670,2601132.3,1199668.8,532.1,Hauptnetz,TAB,Verkehrsschild,nein,12.05.2023,NA,1
+45,Zytglogge,46.94819,7.4474,c454534c7d32,2600667.7,1199678.8,539.8,Hauptnetz,BERNMOBIL,Fahrplananzeigemasten,ja,16.03.2024,NA,1
+46,Autobahnausfahrt Wankdorf,46.96717,7.46968,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+47,Waisenhausplatz III (Mitte): Neben Brunnen,46.94984,7.44418,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+48,Viererfeld 1 (Sportplatz),46.96512,7.43823,75a4a50dfb2c,2599969.6,1201560.1,573.2,Hauptnetz,Sportplatz Viererfeld,Scheinwerfermasten,nein,16.05.2023,NA,1
+50,Kreuzung Familienspaziergang / Laubeggstrasse,46.94644,7.46833,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+51,Bumpliz Stockacker,46.94302,7.39587,db1aaeaf755a,2596744.4,1199104.6,556.6,Hauptnetz,ewb,Laterne,ja,12.05.2023,NA,1
+52,Umland Bumpliz,46.93354,7.36084,1422c91c94ef,2594500.2,1198052.9,573.8,Hauptnetz,ewb,Stromleitungsmasten EWB40,ja,08.05.2023,NA,1
+53,Waffenweg,46.96173,7.45192,459a084688df,2601011.1,1201183.8,554.9,Hauptnetz,TAB,Verkehrsschild 2m85,nein,08.05.2023,NA,1
+54,Waisenhausplatz IV (Pocketpark): vor Starbucks,46.94879,7.44376,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+55,Bollwerk,46.95151,7.44082,36c36d0cf6fd,2600166.32,1200047.33,534.5,Hauptnetz,TAB,Ampel,nein,08.05.2023,NA,1
+57,Eigerplatz,46.94067,7.43141,ac6956757b85,2599450.3,1198842.4,526.1,Hauptnetz,BERNMOBIL,Masten,ja,10.05.2023,NA,1
+58,Murifeld,46.93919,7.47992,e96f9159cdca,2603143.9,1198678.2,553,Hauptnetz,ewb,Lampe,ja,10.05.2023,NA,1
+59,Schlossmatte Familiengarten,46.94211,7.41688,0e93f9aa1539,2598344.1,1199002.6,548.4,Hauptnetz,Stadtgrun,Fahnenmasten,ja,12.05.2023,NA,1
+60,Roschistrasse,46.93508,7.43887,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+61,Westside Center,46.94555,7.37478,1b0dc4db66c0,2595139,1199387.4,554.2,Hauptnetz,ewb,Parklaterne,nein,12.05.2023,NA,1
+62,Felsenhaldenweg,46.97417,7.44122,6cf62e6cfad9,2600197.2,1202567,492.5,Hauptnetz,ewb,Strassenlampe,nein,09.05.2023,NA,1
+63,"Wylergut, Jaunweg 11",46.96766,7.44922,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+65,Umland Bolligen,46.96681,7.50376,4eb78fa39636,2604956.8,1201749.9,557.1,Hauptnetz,BKW,Stromleitungsmasten BKW FMB94,nein,11.05.2023,NA,1
+68,Gleisfeld Welle,46.94832,7.43365,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+68,Gleisfeld Welle,46.94838,7.43359,noch nicht installiert,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+68,Gleisfeld Welle,46.94838,7.43359,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+69,Eisenbahnquartier,46.93716,7.42317,15c44cc1729a,2598822.7,1198452.8,561.1,Hauptnetz,ewb,Strassenlampe,nein,09.05.2023,NA,1
+70,Bundesplatz,46.94692,7.44353,44dd6ed61b66,2600373.1,1199537.1,542.6,Hauptnetz,TAB,Verkehrsschild,nein,12.05.2023,NA,1
+71,Hirschengraben,46.94658,7.43786,83b8067d27a2,2599941.2,1199499.8,540.3,Hauptnetz,ewb,Laternenpfosten,ja,12.05.2023,NA,1
+73,Obstberg,46.94714,7.46407,64520be86594,2601936.8,1199561.8,561.8,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,NA,1
+74,Waisenhausplatz II (Westseite): vor Rest. Luce,46.94917,7.44437,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+76,Wabern Viktoriastrasse,46.93122,7.45326,cbb89f9d130c,2601114,1197791.9,533.6,Hauptnetz,Gemeinde Koniz,Strassenlampe (Gmd Koniz 119),ja,24.05.2023,NA,1
+77,Viererfeld Wald,46.96406,7.43582,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+78,Dalmazibrucke,46.94445,7.44571,e3594371a27b,2600538.5,1199262.1,500.9,Hauptnetz,ewb,Strassenlampe,nein,24.05.2023,NA,1
+79,Umland Belp,46.89942,7.51184,e1ccbf0d3c96,2605578,1194258.9,513.1,Hauptnetz,Energie Belp,Stromleitungsmasten EVB52,nein,09.05.2023,NA,1
+80,Elfenau,46.93558,7.4695,db9e92f34b5f,2602350.8,1198276.9,544.8,Hauptnetz,ewb,Strassenlampe,nein,10.05.2023,NA,1
+82,Thunplatz,46.94059,7.45824,7c98b95fbc73,2601493.1,1198834.2,551.8,Hauptnetz,BERNMOBIL,Tramampel,nein,10.05.2023,NA,1
+83,Stadtlabor,46.96311,7.46257,d6e2769def35,2601821.5,1201337.7,554.5,Hauptnetz,AFU,Holzpflock,ja,08.05.2023,NA,1
+85,Ensingerstrasse 28,46.94244,7.46132,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+86,Ostermundigen Lotschenstrasse,46.95309,7.48719,0cebd74f5020,2603696,1200224.7,551.5,Hauptnetz,Gemeinde Ostermundigen,Strassenlampe,ja,11.05.2023,NA,1
+87,Engehalde Stauwehr,46.96546,7.44503,b60acb7fff9f,2600486.5,1201598.6,494.5,Hauptnetz,ewb,"Wehr, am ubergang",nein,08.05.2023,NA,1
+89,Gurten Kulm,46.91833,7.43971,7462a9be23a4,2600082,1196359.1,848,Hauptnetz,ewb,Strassenlampe,nein,27.07.2023,NA,1
+98,Zollikofen 2m,46.99079,7.46407,20d1b9040ad9,2601935.4,1204414.8,552.9,Hauptnetz,MeteoSchweiz,Metallstange,ja,09.05.2023,NA,1
+99,Zollikofen 3m,46.99079,7.46407,135a449d34a1,2601935.4,1204414.8,552.9,Hauptnetz,MeteoSchweiz,Metallstange,ja,09.05.2023,NA,1
+101,Steinholzliwald,46.93514,7.42805,213cff7114f2,2599194.5,1198227.6,573.7,Hauptnetz,Burgergemeinde,Baum,nein,09.05.2023,NA,1
+102,Vordere Langgasse,46.95171,7.43714,2b71f57ca11c,2599886.1,1200069.3,561.6,Hauptnetz,ewb,Strassenlampe,ja,08.05.2023,NA,1
+110,Rosalia-Wenger Platz,46.96823,7.4639,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+111,Tellstrasse,46.96017,7.46146,68d17acb4c7c,2601737.6,1201010.4,556.1,Monitoring intern,BERNMOBIL,Masten,nein,10.05.2023,NA,1
+112,Ausserholligen Post,46.94755,7.40188,f9c2d2bbe84f,2597202.2,1199607.9,547.9,Monitoring intern,Post,Strassenlampe,nein,12.05.2023,NA,1
+113,Ausserholligen ewb,46.94542,7.40642,4f5e9a2b9675,2597547.3,1199371.3,547.6,Monitoring intern,ewb,Strassenlampe,nein,12.05.2023,NA,1
+114,"Bachmatteli 1, Polizei",46.94019,7.39051,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+115,Bachmatteli 2,46.93996,7.39007,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+116,Ansermetplatz,46.94787,7.37708,061bc5815e5a,2595313.7,1199645,545.2,Hauptnetz,ewb,Strassenlampe,nein,12.05.2023,NA,1
+117,Koniztal,46.90961,7.44248,a474b0e06285,2600293.4,1195389.8,631,Hauptnetz,Bauer,Schild,nein,09.05.2023,NA,1
+118,Helvetiaplatz Monitoring,46.94359,7.44936,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+119,Rosalia-Wenger Platz Monitoring,46.96762,7.46401,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+121,Neben Brunnen,46.94984,7.44418,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+122,Vor Rest Luce,46.94917,7.44437,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+122,"Waisenhausplatz II, vor Rest. Luce",46.94917,7.44437,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+123,Vor Starbucks,46.94879,7.44376,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+124,Barenplatz,46.94814,7.44366,995c5da790ca,2600382.9,1199672.9,542.1,Monitoring intern,TAB,Maritstange,nein,24.05.2023,NA,1
+125,"Barenplatz, Schach",46.94734,7.44366,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+125,"Barenplatz, Schachfeld",46.94734,7.44366,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+126,Optingenstrasse,46.95597,7.45045,5d922b8eddee,2600899.9,1200543.3,557.3,Monitoring intern,TAB,Verkehrsschild,nein,08.05.2023,NA,1
+127,Breitenrainplatz,46.95838,7.45415,58c0f9c55c8d,2601181.1,1200811.8,559.8,Monitoring intern,ewb,Strassenlampe,nein,08.05.2023,NA,1
+128,Schosshaldefriedhof,46.95341,7.47159,NA,2602508.69,1200259.13,568.5,Monitoring extern,NA,NA,NA,NA,NA,NA
+129,Laupenstrasse,46.94734,7.43639,c1c63230dd69,2599829,1199583.8,540.6,Monitoring intern,BERNMOBIL,Fahrplananzeigemasten,nein,12.05.2023,NA,1
+131,Marzili Beton,46.94238,7.44103,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+132,Marzili Entsiegelung,46.94222,7.4406,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+133,Marzili Rasen,46.94216,7.4408,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+134,Vorplatz Baerenpark,46.94823,7.45974,5e37031f7f2b,2601607,1199683,520.6,NA,NA,NA,Nein,16.03.2024,NA,1
+135,Optingenstrasse Sud,46.95439,7.44938,cad06aabf023,2600818,1200367,558.5,Monitoring intern?,TAB,Verkehrsschild,nein,21.03.2024,NA,1
+136,Optingenstrasse Nord,46.95672,7.45081,f055cf494274,2600927,1200627,555.4,Monitoring intern?,TAB,Strassenlampe,Nein,21.03.2024,NA,1
+141,Viererfeld 2 (Schacht),46.96271,7.43688,2512f6b6f8a7,2599866.3,1201293.1,571.1,Monitoring extern,eawag,Stange,nein,08.05.2023,NA,1
+142,Viererfeld 3 (Strasse Sud),46.96286,7.44009,34203a10c11a,2600111.1,1201309.4,564.2,Monitoring extern,ewb,Kandelaber,nein,11.05.2023,NA,1
+143,Viererfeld 4 (Strasse Nord),46.96523,7.44165,cb1330fd71b9,2600229.8,1201572.8,567.5,Monitoring extern,ewb,Kandelaber,nein,16.05.2023,NA,1
+144,Viererfeld 5 (Mittelfeld),46.96178,7.43481,a8386067f2e8,2599709.3,1201189.5,573.6,Monitoring extern,Urban Climate Bern,Eigene Stange,nein,08.05.2023,NA,1
+151,Ostermundigen BareTower,46.95563,7.48114,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+151,Ostermundigen BareTower,46.95563,7.48114,1422c91c94ef,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+151,Ostermundigen BaereTower,46.95563,7.48114,1422c91c94ef,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+152,Ostermundigen Moosweg,46.95813,7.48807,71912f0c8afa,2603763,1200784.8,552,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+153,Ostermundigen Wegmuhlegassli,46.95806,7.49371,57542e9f73a9,2604192.2,1200777.3,548.3,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+154,Ostermundigen Oberfeld,46.9581,7.49792,22164103ffc8,2604512.4,1200781.4,567.4,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+155,Ostermundigen Milchstrasse,46.96241,7.48201,5d30f69ffcbf,2603301.6,1201260.5,550.5,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+156,Ostermundigen Tiefenmosli,46.94801,7.48411,d89267a081f7,2603462.3,1199659.8,552.2,Monitoring Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+161,Ostermundigen Schermenweg,46.95821,7.48052,d3960c86f92a,2603188.1,1200793.3,551.8,Monitoring Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,11.05.2023,NA,1
+162,Ostermundigen Poststrasse,46.95867,7.48222,db897f1683fc,2603317.7,1200844.3,551.5,Hauptnetz Ostermundigen,Gemeinde Ostermundigen,Strassenlampe,nein,16.06.2023,NA,1
+171,Postgasse Nord,46.94886,7.4542,7b36c77aba0d,2601185.138,1199752.986,531,Monitoring intern,UC,Verkehrsschild,nein,21.03.2024,NA,1
+173,Postgasse West,46.94871,7.45341,a6d098900d78,2601124.999,1199736.299,537,Monitoring intern,UC,Verkehrsschild,nein,21.03.2024,NA,1
+174,Postgasse Sued,46.94886,7.45466,f31e2d9d37ba,2601220.158,1199752.992,530,Monitoring intern,UC,Verkehrsschild,nein,21.03.2024,NA,1
+NA,Ostermundigen BareTower 2,46.95563,7.48114,75a4a50dfb2c,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,Spielplatz Untermatt,46.94855,7.40002,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,Bremgartenwald tief,46.9646,7.41178,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,Holligen,46.94519,7.4168,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
