@@ -46,27 +46,21 @@ for (file in csv_files) {
   assign(file_name, df)
 }
 
+metadata_static <- read_xlsx('../Bern/Meta_Bern.xlsx')
+metadata_static <- metadata_static|>
+  select(c(Log_NR, STANDORT_NEU, Code_grafana, Latitude, Longitude, Start, End))|>
+  rename(Standort = STANDORT_NEU)
 
-metadata_static <- read_xlsx('../../Metadata/Bern/Meta_Bern.xlsx')
-
-metadata <- read_csv('../../Metadata/Bern/Metadata_19-22.csv')
+metadata <- read_csv('../Bern/Metadata_19-22.csv')
 metadata <- metadata|>
+  mutate(Code_grafana = NA,
+         Start = NA,
+         End = NA)|>
   rename(Log_NR = Log_Nr,
-         STANDORT_NEU = Name,
+         Standort = Name,
          Latitude = NORD_CHTOP,
          Longitude = OST_CHTOPO)|>
-  mutate(STANDORT = NA,
-         Code_grafana = NA,
-         HuM = NA,
-         Art = NA,
-         ZUSTAENDIG = NA,
-         BEFESTIGUNG = NA,
-         Doppel_Messnetz_23 = NA,
-         Start = NA,
-         End = NA,
-         Quali = NA,
-         New = NA)
-
+  select(c(Log_NR, Standort, Code_grafana, Latitude, Longitude, Start, End))
 
 data <- rbind(metadata_static, metadata)|>
   mutate(Log_NR = as.numeric(Log_NR))|>
@@ -75,61 +69,61 @@ data <- rbind(metadata_static, metadata)|>
   filter(n() == 1 | !is.na(Code_grafana)) |>
   ungroup()
 
+location_columns <- c("STANDORT_NEU", "Standort", "name", "NAME")
+lat_columns <- c("Lat", "Latitude", "NORD_CHTOPO")
+lon_columns <- c("Lon", "Longitude", "OST_CHTOPO")
 
-compare_data <- function(data1, data2) {
+data_combi <- function(data1, data2) {
   # Make sure the Log numbers are numeric
-  data1 <- data1|>
-    dplyr::mutate(Log_NR = as.numeric(Log_NR))
-
+  data1 <- data1 |>
+    dplyr::mutate(ID = 1)
+  
   data2 <- data2|>
-    dplyr::mutate(Log_NR = as.numeric(Log_NR))
+    dplyr::mutate(Log_NR = as.numeric(Log_NR),
+                  ID = 2)|>
+    select(c(Log_NR, any_of(location_columns), Code_grafana, any_of(lat_columns),
+             any_of(lon_columns), Start, End, ID))|>
+    rename(Standort = any_of(location_columns),
+           Latitude = any_of(lat_columns),
+           Longitude = any_of(lon_columns))
 
-  # Perform inner join based on Log_NR --> Add suffixes so that they are distinguishable
-  merged_data <- inner_join(data1, data2, by = "Log_NR", suffix = c("_old", "_new"))
+  df <- rbind(data1, data2)
+  
+  df <- df|>
+    dplyr::filter(!is.na(Code_grafana)) |>
+    arrange(Log_NR)
+  
+  # semi_join() return all rows from x with a match in y
+  rows_to_remove <- df |>
+    dplyr::filter(ID == 2) |>
+    semi_join(df |> filter(ID == 1),
+              by = c("Log_NR", "Code_grafana"))
+  
+  # anti_join() return all rows from x without a match in y.
+  new_filtered <- df |>
+    anti_join(rows_to_remove, by = c("Log_NR", "Code_grafana"))
+  
+  df <- rbind(data1, new_filtered)|>
+    arrange(Log_NR)
 
-  # Filter for rows where Code_grafana matches
-  matching_codes <- merged_data |>
-    filter(Code_grafana_old == Code_grafana_new)
-
-  filter_vec_1 <- matching_codes|>
-    select(Log_NR)|>
-    pull()
-
-  # Filter for rows where Code_grafana not matches
-  no_matching_codes <- merged_data |>
-    filter(Code_grafana_old != Code_grafana_new)
-
-  filter_vec_2 <- no_matching_codes|>
-    select(Log_NR)|>
-    pull()
-
-  difference <- data2|>
-    filter(Log_NR != c(filter_vec_1 | filter_vec_2))
-
-  # Join both data sets but use only missing rows
-  df <- anti_join(data2, difference, by = "Log_NR")
-
-  lst <- list(matching_codes, no_matching_codes, df)
-  return(lst)
+  return(df)
 }
 
-df_1 <- compare_data(data, Logger_neu_grafana)
+df <- data_combi(data, metadata_gen_2)
+df_1 <- data_combi(df, meta_complete)
+df_2 <- data_combi(df_1, meta_complete_2)
+df_3 <- data_combi(df_2, Logger_neu_grafana|>mutate(End = NA))
+df_4 <- data_combi(df_3, metadata_network_2023|>mutate(End = NA))
+df_5 <- data_combi(df_4, metadata_network_2024|>mutate(End = NA))
+df_6 <- data_combi(df_5, metadata_network_2024_2|>mutate(Start = NA, End = NA))
+df_7 <- data_combi(df_6, metadata_network_old)    
 
-df_2 <- compare_data(data, meta_complete)
-
-df_3 <- compare_data(data, meta_complete_2)
-
-df_4 <- compare_data(data, metadata_gen_2)
-
-df_5 <- compare_data(data, metadata_network_2023)
-
-df_6 <- compare_data(data, metadata_network_2024)
-
-df_7 <- compare_data(data, metadata_network_2024_2)
-
-#df_8 <- compare_data(data, metadata_network_old)
-
-
+metadata_dynamic <- df_7|>
+  select(-ID)|>
+  filter(nchar(Code_grafana) == 12) |>
+  filter(!is.na(Log_NR))|>
+  distinct()|>
+  arrange(Log_NR)
 
 replace_umlauts <- function(df) {
   df_updated <- df %>%
@@ -138,22 +132,18 @@ replace_umlauts <- function(df) {
 }
 
 # Applying the function to your data frame
-data_updated <- replace_umlauts(data)
+metadata_dynamic <- replace_umlauts(metadata_dynamic)
 
-data_updated|>
-
-
-guardian <- file.exists('../Bern/metadata_static.csv')
+guardian <- file.exists('../Bern/Bern_dynamic.csv')
 
 # We need a version control system. So if we generate a new file, then we
 # append the local timestamp to the file name
 if (guardian == FALSE) {
   # Generate a new file with the current system time in the name
   timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-  new_file_name <- paste0('metadata_static_', timestamp, '.csv')
+  new_file_name <- paste0('metadata_dynamic_', timestamp, '.csv')
   print(paste('Generating a new file:', new_file_name))
-  write_csv2(data_updated, new_file_name)
+  write_csv2(metadata_dynamic, new_file_name)
 } else {
   print('There is already a file called metadata_static.csv')
-}
-
+}  
