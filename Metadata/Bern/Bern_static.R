@@ -257,7 +257,7 @@ metadata_final <- replace_umlauts(metadata_final)
 #-------------------------------------------------------------------------------
 
 
-guardian <- file.exists('../Metadata/Bern/')
+guardian <- TRUE
 
 # We need a version control system. So if we generate a new file, then we
 # append the local timestamp to the file name

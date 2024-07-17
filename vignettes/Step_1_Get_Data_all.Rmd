@@ -26,7 +26,7 @@ The function sorts the data into two big tables (temperature and relative humidi
 source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
 data <- Logger_data("Bern", date_start = "2024-06-01",interpolate = 0, write_csv = T)
-data <- Logger_data("Thun", date_start = "2024-07-05", date_end = "2024-07-11", interpolate = 0, write_csv = F)
+#data <- Logger_data("Thun", date_start = "2024-07-05", date_end = "2024-07-11", interpolate = 0, write_csv = F)
 
 
 ```
