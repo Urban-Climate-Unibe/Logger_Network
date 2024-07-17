@@ -48,33 +48,33 @@ visdat::vis_value(data_cleaned, )
 
 # Map missing data
 ```{r}
-metadata <- read.csv("../Data/metadata_Thun.CSV") |>
-  mutate(Log_NR = paste0("Log_", Log_NR))
-
-data_missing <- data_cleaned |>
-  #summarize by counting how many rows contain NA and dividing by number of rows
-  summarize_all(~sum(is.na(.))/n()) |>
-  # Add column names as row
-  rbind(colnames(data_cleaned)) |>
-  t() |>
-  as.data.frame() |>
-  rename(missing = V1,
-         Log_NR = V2) |>
-  mutate(missing = as.numeric(missing) * 100)
-
-metadata <- metadata |>
-  left_join(data_missing, by = c("Log_NR"))
-
-pal <- leaflet::colorNumeric("plasma", domain = metadata$missing)
-
-leaflet::leaflet(metadata) |>
-  leaflet::addTiles() |>
-  leaflet::addCircleMarkers(~OST_CHTOPO, ~NORD_CHTOPO, 
-                            fillColor = ~pal(missing), radius = 6, fillOpacity = 1, 
-                            color = "black", weight = 1, opacity = 1, 
-                            popup = paste(
-                             "<strong>Measurement type: </strong>", round(metadata$missing))) |>
-  leaflet::addLegend("bottomright", pal = leaflet::colorNumeric("plasma", domain = metadata$missing), values = metadata$missing, title = "Missing data in %")
+# metadata <- read.csv("../Data/metadata_Thun.CSV") |>
+#   mutate(Log_NR = paste0("Log_", Log_NR))
+# 
+# data_missing <- data_cleaned |>
+#   #summarize by counting how many rows contain NA and dividing by number of rows
+#   summarize_all(~sum(is.na(.))/n()) |>
+#   # Add column names as row
+#   rbind(colnames(data_cleaned)) |>
+#   t() |>
+#   as.data.frame() |>
+#   rename(missing = V1,
+#          Log_NR = V2) |>
+#   mutate(missing = as.numeric(missing) * 100)
+# 
+# metadata <- metadata |>
+#   left_join(data_missing, by = c("Log_NR"))
+# 
+# pal <- leaflet::colorNumeric("plasma", domain = metadata$missing)
+# 
+# leaflet::leaflet(metadata) |>
+#   leaflet::addTiles() |>
+#   leaflet::addCircleMarkers(~OST_CHTOPO, ~NORD_CHTOPO, 
+#                             fillColor = ~pal(missing), radius = 6, fillOpacity = 1, 
+#                             color = "black", weight = 1, opacity = 1, 
+#                             popup = paste(
+#                              "<strong>Measurement type: </strong>", round(metadata$missing))) |>
+#   leaflet::addLegend("bottomright", pal = leaflet::colorNumeric("plasma", domain = metadata$missing), values = metadata$missing, title = "Missing data in %")
 ```
 
 
