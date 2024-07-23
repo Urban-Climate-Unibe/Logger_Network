@@ -23,7 +23,7 @@ The time range of the data that should be downloaded can be set manually in the 
 ```{r currentloggers, indlude = F}
 source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
-data <- Logger_data("Bern", date_start = "2024-06-01",interpolate = 0, write_csv = T)
+data <- Logger_data("Bern", date_start = "2024-05-15", date_end = "2024-07-22", interpolate = 0, write_csv = T)
 ```
 
 ## Thun
@@ -31,6 +31,11 @@ data <- Logger_data("Bern", date_start = "2024-06-01",interpolate = 0, write_csv
 source("https://raw.github.com/Urban-Climate-Unibe/Logger_Network/main/R/Logger_Data.R")
 
 data <- Logger_data("Thun", date_start = "2024-07-06", date_end = "2024-07-16", interpolate = 0, write_csv = F)
+```
+
+```{r}
+# Get the timezone from data$time (should be UTC)
+attr(data$time, "tzone")
 ```
 
 

@@ -1,13 +1,13 @@
 
 # date_start = "2023-05-01"
 # date_end = "2023-09-01"
-Logger_data <- function(city = "Bern", date_start = "2024-03-18",date_end = as.character(Sys.Date()),write_csv = T,interpolate = 0,type = "temperature"){
+Logger_data <- function(city = "Bern", date_start = "2024-03-18", date_end = as.character(Sys.Date()),write_csv = T,interpolate = 0,type = "temperature"){
 
 #' Download the temperature measurement data from the grafana server and put it into a nice table.
 #'
 #' @param city The city for which the data should be downloaded.
-#' @param date_start A character string containing the first day of data to download. Default is yesterday.
-#' @param date_end A character string containing the last day. Default is 50 days ago.
+#' @param date_start A character string containing the first day of data to download. Default is 50 days ago.
+#' @param date_end A character string containing the last day. Default is yesterday.
 #' @param write_csv A Boolean indicating whether the data should be directly saved into a csv. Default is TRUE.
 #' @param interpolate A Boolean indicating whether missing data should be interpolated. Default is TRUE.
 #' @returns A dataframe containing the downloaded data in tidy format.
