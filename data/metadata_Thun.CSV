@@ -1,41 +1,46 @@
-Log_NR,STANDORT,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Nr_Strassenlaterne,LCZ,Start,End,Quali
-401,Referenz 3m,db01c2838caa,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1
-402,Referenz 2m,de00e74e2441,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1
-403,Burgerwald,e9797673b958,46.75077,7.60025,1177744.305,2612349.203,,Thun Grundmessnetz,Schweizerische Eidgenossenschaft EMD,Baum,-,B,23.04.2024,,1
-404,Stockhorn Arena,85b515e15e67,46.74515,7.60521,1177120,2612729,,Thun Grundmessnetz,Genossenschaft Migros Aare Moosseedorf,Laternenpfahl auf Parkplatz,-,8,29.04.2024,,1
-405,Thunerallmend,733d30465d02,46.75718,7.60421,1178458,2612650,,Thun Grundmessnetz,Militär,Pfosten Sportplatz,,D,24.04.2024,,1
-406,KVA Parkplatz,abc3f0ad3005,46.76261,7.60603,1179061,2612788,,Thun Grundmessnetz,KVA Thun,Strassenlaterne,559,8/E,23.04.2024,,1
-407,KVA Grünfläche,2f57dded01fb,46.76181,7.60933,1178973,2613040,,Thun Grundmessnetz,Stadt Thun -> AfS,Strassenlaterne,340,D/E,23.04.2024,,1
-408,Lerchenfeld,897691399b92,46.76604,7.60234,1179442,2612505,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,1657,6,24.04.2024,,1
-409,Scheibenstrasse,f5392277f521,46.76011,7.62234,1178786,2614034,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,5285,5,29.04.2024,,1
-410,Lauenenweg,dc4721731cf8,46.76289,7.63818,1179098,2615244,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4100,6,29.04.2024,,1
-411,Spital,158182327650 ,46.76149,7.63146,1178942,2614731,,Thun Grundmessnetz,Spital STS AG Thun,Strassenlaterne,-,5/2,29.04.2024,,1
-412,Innenstadt,7f389e3d8406,46.75875,7.62995,1178637,2614616,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,3715,2,29.04.2024,,1
-413,Aarequai,678bd7580436,46.75683,7.63252,1178424,2614813,,Thun Grundmessnetz,Energie Thun AG,Betonpfahl,-,G,29.04.2024,,1
-414,Busbahnhof,9ab96fd544ad,46.75517,7.62994,1178239,2614616.00,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4117,E/2,26.04.2024,,1
-415,Gleisfeld,,46.75273,7.63179,1177968,2614758,,Thun Grundmessnetz,SBB,Laternenpfahl,-,E,,,
-416,ESP Thun Bahnhof,a2f6a9877dd7,46.74960,7.63395,1177620,2614924,,Thun Grundmessnetz,Energie Thun AG,Kandelaber,1275,E,26.04.2024,,1
-417,Bächihölzli,22acaac7a259,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,23.04.2024,12.05.2024,1
-417,Bächihölzli,5aa60b49833f,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,13.05.2024,,1
-418,Schadau,ddc76ade24ac,46.74619,7.63853,1177242,2615275,,Thun Grundmessnetz,Einwohnergemeinde Thun,Mast Schiffahrtsignal,-,G/B,26.04.2024,,1
-419,Progymatte,,46.75304,7.62070,1178000,2613911,,Thun Grundmessnetz,Stadt Thun -> AfS,Kandelaber,-,D/E,,,
-420,Hohmad,22acaac7a259,46.74678,7.62247,1177305,2614048,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,1944,6,13.05.2024,,1
-421,Neufeld,1d959f0c51a6,46.73948,7.61728,1176492,2613653,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,2699,6,26.04.2024,,1
-422,Strandbad,070967caf645,46.74004,7.63322,1176557,2614871,,Thun Grundmessnetz,Einwohnergemeinde Thun,Kandelaber,-,D/E/G,26.04.2024,,1
-423,Schoren,8b66103068c3,46.73160,7.61812,1175616,2613719,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,3063,8,29.04.2024,,1
-424,Buchholz,db19af7e9900,46.73090,7.60847,1175537,2612982,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,2798,9,29.04.2024,,1
-425,Gwatt,9d046db037c8,46.71913,7.62173,1174231,2613998,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4024,6,13.05.2024,,1
-426,Goldiwil,fec38f2bf817,46.76323,7.66390,1179141,2617208,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,5020,2,29.04.2024,,1
-427,Uttigenstrasse,ea2340236629,46.76287,7.61278,1179091,2613303,,Thun Variabel,Energie Thun AG,Strassenlaterne,5641,8,29.04.2024,,1
-428,Expo,b9471e20fc27,46.75770,7.61767,1178518,2613678,,Thun Variabel,Energie Thun AG,Strassenlaterne,5490,8/2,29.04.2024,,1
-429,SchönauWestquartier,d2ef7719af35,46.75170,7.61156,1177850,2613213,,Thun Variabel,Energie Thun AG,Strassenlaterne,1374,5,29.04.2024,,1
-430,Sportcluster,fba5ecbec33f,46.74637,7.60990,1177257,2613087,,Thun Variabel,Genossenschaft Sportplatz Burgerweg,Eckpfosten Gitter Sportplatz,-,D,29.04.2024,,1
-431,Seefeld,e7bc7b8f57ae,46.74939,7.63001,1177596,2614623,,Thun Variabel,Energie Thun AG,Strassenlaterne,4433,6,26.04.2024,,1
-432,Flühli,ff8e4421c522,46.78555,7.63076,1181616,2614671,,Steffisburg,NetZulg AG,Strassenlaterne,934,6,24.04.2024,,1
-433,Zelgmatt,83b898acc49d,46.77786,7.63956,1180763,2615345,,Steffisburg,NetZulg AG,Strassenlaterne,1249,6,24.04.2024,,1
-434,Unterdorfstrasse,252606921de0,46.77766,7.63401,1180739,2614921,,Steffisburg,Genossenschaft Migros Aare Moosseedorf,Strassenlaterne,SIMES 000804/22,2/5,29.04.2024,,1
-435,Sägeweg,2821f75c8470,46.77383,7.62668,1180312,2614362,,Steffisburg,NetZulg AG,Strassenlaterne,469,6,24.04.2024,20.05.2024,0
-435,Sägeweg,a4caecd1e2e6,46.77383,7.62668,1180312,2614362,,Steffisburg,NetZulg AG,Strassenlaterne,469,6,21.05.2024,,1
-436,Burgergut,369da61ecbbf,46.77195,7.61591,1180102,2613540,,Steffisburg,NetZulg AG,Strassenlaterne,372,5,24.04.2024,,1
-437,Hodelmatte,bcbb8de05384,46.76882,7.62650,1179755,2614350,,Steffisburg,NetZulg AG,Strassenlaterne,?,D,29.04.2024,,1
-438,Schwäbis,f491c5e3798a,46.76616,7.62230,1179459,2614030,,Steffisburg,NetZulg AG,Strassenlaterne,503,5/6,24.04.2024,,1
+Log_NR,STANDORT,Code_grafana,NORD_CHTOPO,OST_CHTOPO,LV_03_N,LV_03_E,HuM,Art,ZUSTAENDIG,BEFESTIGUNG,Nr_Strassenlaterne,LCZ,Start,End,Quali,Antenne
+401,Referenz 3m,db01c2838caa,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1,
+402,Referenz 2m,de00e74e2441,46.74982,7.58521,1177635.984,2611199.79,,Thun Grundmessnetz,MeteoSchweiz/Militär,?,-,D,13.05.2024,,1,
+403,Burgerwald,e9797673b958,46.75077,7.60025,1177744.305,2612349.203,,Thun Grundmessnetz,Schweizerische Eidgenossenschaft EMD,Baum,-,B,23.04.2024,21.05.2024,1,
+403,Burgerwald,e9797673b958,46.75077,7.60025,1177744.305,2612349.203,,Thun Grundmessnetz,Schweizerische Eidgenossenschaft EMD,Baum,-,B,04.06.2024,,1,
+404,Stockhorn Arena,85b515e15e67,46.74515,7.60521,1177120,2612729,,Thun Grundmessnetz,Genossenschaft Migros Aare Moosseedorf,Laternenpfahl auf Parkplatz,-,8,29.04.2024,24.07.2024,1,
+404,Stockhorn Arena,,46.74515,7.60521,1177120,2612729,,Thun Grundmessnetz,Genossenschaft Migros Aare Moosseedorf,Laternenpfahl auf Parkplatz,-,8,07.08.2024,,1,
+405,Thunerallmend,733d30465d02,46.75718,7.60421,1178458,2612650,,Thun Grundmessnetz,Militär,Pfosten Sportplatz,,D,24.04.2024,,1,
+406,KVA Parkplatz,abc3f0ad3005,46.76261,7.60603,1179061,2612788,,Thun Grundmessnetz,KVA Thun,Strassenlaterne,559,8/E,23.04.2024,,1,
+407,KVA Grünfläche,2f57dded01fb,46.76181,7.60933,1178973,2613040,,Thun Grundmessnetz,Stadt Thun -> AfS,Strassenlaterne,340,D/E,23.04.2024,,1,
+408,Lerchenfeld,897691399b92,46.76604,7.60234,1179442,2612505,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,1657,6,24.04.2024,,1,14.06.2024
+409,Scheibenstrasse,f5392277f521,46.76011,7.62234,1178786,2614034,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,5285,5,29.04.2024,21.05.2024,1,
+409,Scheibenstrasse,166584a41612,46.76011,7.62234,1178786,2614034,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,5285,5,14.06.2024,,1,
+410,Lauenenweg,dc4721731cf8,46.76289,7.63818,1179098,2615244,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4100,6,29.04.2024,,1,
+411,Spital,158182327650 ,46.76149,7.63146,1178942,2614731,,Thun Grundmessnetz,Spital STS AG Thun,Strassenlaterne,-,5/2,29.04.2024,,1,
+412,Innenstadt,7f389e3d8406,46.75875,7.62995,1178637,2614616,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,3715,2,29.04.2024,,1,04.06.2024
+413,Aarequai,678bd7580436,46.75683,7.63252,1178424,2614813,,Thun Grundmessnetz,Energie Thun AG,Betonpfahl,-,G,29.04.2024,,1,
+414,Busbahnhof,9ab96fd544ad,46.75517,7.62994,1178239,2614616.00,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4117,E/2,26.04.2024,,1,04.06.2024
+415,Gleisfeld,,46.75273,7.63179,1177968,2614758,,Thun Grundmessnetz,SBB,Laternenpfahl,-,E,,,,
+416,ESP Thun Bahnhof,a2f6a9877dd7,46.74960,7.63395,1177620,2614924,,Thun Grundmessnetz,Energie Thun AG,Kandelaber,1275,E,26.04.2024,,1,
+417,Bächihölzli,22acaac7a259,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,23.04.2024,12.05.2024,1,
+417,Bächihölzli,5aa60b49833f,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,13.05.2024,21.05.2024,1,
+417,Bächihölzli,5aa60b49833f,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,04.06.2024,07.08.2024,1,04.06.2024
+417,Bächihölzli,37630016299c,46.74835,7.64059,1177483,2615432,,Thun Grundmessnetz,Burgergemeinde Thun,Baum,-,A,07.08.2024,,1,04.06.2024
+418,Schadau,ddc76ade24ac,46.74619,7.63853,1177242,2615275,,Thun Grundmessnetz,Einwohnergemeinde Thun,Mast Schiffahrtsignal,-,G/B,26.04.2024,,1,
+419,Progymatte,,46.75304,7.62070,1178000,2613911,,Thun Grundmessnetz,Stadt Thun -> AfS,Kandelaber,-,D/E,,,,
+420,Hohmad,22acaac7a259,46.74678,7.62247,1177305,2614048,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,1944,6,13.05.2024,,1,14.06.2024
+421,Neufeld,1d959f0c51a6,46.73948,7.61728,1176492,2613653,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,2699,6,26.04.2024,,1,
+422,Strandbad,070967caf645,46.74004,7.63322,1176557,2614871,,Thun Grundmessnetz,Einwohnergemeinde Thun,Kandelaber,-,D/E/G,26.04.2024,,1,
+423,Schoren,8b66103068c3,46.73160,7.61812,1175616,2613719,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,3063,8,29.04.2024,,1,14.06.2024
+424,Buchholz,db19af7e9900,46.73090,7.60847,1175537,2612982,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,2798,9,29.04.2024,,1,25.07.2024
+425,Gwatt,9d046db037c8,46.71913,7.62173,1174231,2613998,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,4024,6,13.05.2024,,1,
+426,Goldiwil,fec38f2bf817,46.76323,7.66390,1179141,2617208,,Thun Grundmessnetz,Energie Thun AG,Strassenlaterne,5020,2,29.04.2024,,1,14.06.2024
+427,Uttigenstrasse,ea2340236629,46.76287,7.61278,1179091,2613303,,Thun Variabel,Energie Thun AG,Strassenlaterne,5641,8,29.04.2024,,1,
+428,Expo,b9471e20fc27,46.75770,7.61767,1178518,2613678,,Thun Variabel,Energie Thun AG,Strassenlaterne,5490,8/2,29.04.2024,,1,
+429,SchönauWestquartier,d2ef7719af35,46.75170,7.61156,1177850,2613213,,Thun Variabel,Energie Thun AG,Strassenlaterne,1374,5,29.04.2024,,1,14.06.2024
+430,Sportcluster,fba5ecbec33f,46.74637,7.60990,1177257,2613087,,Thun Variabel,Genossenschaft Sportplatz Burgerweg,Eckpfosten Gitter Sportplatz,-,D,29.04.2024,,1,07.08.2024
+431,Seefeld,e7bc7b8f57ae,46.74939,7.63001,1177596,2614623,,Thun Variabel,Energie Thun AG,Strassenlaterne,4433,6,26.04.2024,,1,
+432,Flühli,ff8e4421c522,46.78555,7.63076,1181616,2614671,,Steffisburg,NetZulg AG,Strassenlaterne,934,6,24.04.2024,,1,27.07.2024
+433,Zelgmatt,83b898acc49d,46.77786,7.63956,1180763,2615345,,Steffisburg,NetZulg AG,Strassenlaterne,1249,6,24.04.2024,,1,
+434,Unterdorfstrasse,252606921de0,46.77766,7.63401,1180739,2614921,,Steffisburg,Genossenschaft Migros Aare Moosseedorf,Strassenlaterne,SIMES 000804/22,2/5,29.04.2024,,1,
+435,Sägeweg,2821f75c8470,46.77383,7.62668,1180312,2614362,,Steffisburg,NetZulg AG,Strassenlaterne,469,6,24.04.2024,20.05.2024,0,
+435,Sägeweg,a4caecd1e2e6,46.77383,7.62668,1180312,2614362,,Steffisburg,NetZulg AG,Strassenlaterne,469,6,21.05.2024,,1,
+436,Burgergut,369da61ecbbf,46.77195,7.61591,1180102,2613540,,Steffisburg,NetZulg AG,Strassenlaterne,372,5,24.04.2024,,1,
+437,Hodelmatte,bcbb8de05384,46.76882,7.62650,1179755,2614350,,Steffisburg,NetZulg AG,Strassenlaterne,?,D,29.04.2024,,1,
+438,Schwäbis,f491c5e3798a,46.76616,7.62230,1179459,2614030,,Steffisburg,NetZulg AG,Strassenlaterne,503,5/6,24.04.2024,,1,
